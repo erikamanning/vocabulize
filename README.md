@@ -1,2 +1,2 @@
-# vocabulize
-a visual vocab learning app that uses drawing to help cement learning
+# Vocabulize
+a visual learning app that uses drawing to help improve vocabulary learning
