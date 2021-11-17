@@ -38,7 +38,7 @@ Quiz levels can be easy or hard. Hard mode gives the user the word and has them 
 We plan to use the Random-Words-API [Random-Words-API](https://github.com/mcnaveen/Random-Words-API) and possibly the [Merriam-Webster Dictionary API](https://dictionaryapi.com/products/api-collegiate-dictionary).
 
 ## Libraries
-The main library we plan to use is the [Paper.js](http://paperjs.org/) library for creating the images for the cards. We also plan to most likely use front end libraries for UI/UX implementation.
+The main library we plan to use is the [Paper.js](http://paperjs.org/) library for creating the images for the cards. We also plan to use front end libraries for UI/UX implementation.
 
 ## Roadmap
 Currently this is a front-end only app. But in the future we are considering adding a back end and allowing users to have profiles and save cards so that they can be reviewed later.
