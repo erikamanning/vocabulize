@@ -6,10 +6,8 @@ class RandomWordsAPI{
     static async getWord(){
         console.log('getting word...');
         try{
-
             let res = await axios.get(`${BASE_URL}/word`);
-            console.log('res: ', res);
-            return res.data;
+            return res.data[0];
         }
         catch(error){
             console.error("Random-Words-API Error - couldn't get word", error.response);
@@ -24,18 +22,17 @@ class RandomWordsAPI{
         let promises = [];
 
         for(let i=0; i<numWords; i++){
-            promises.push(await axios.get(`${BASE_URL}/word`));
+            promises.push(await this.getWord());
         }
 
-        Promise.all(promises).then((values)=>{
+        return Promise.all(promises).then((values)=>{
 
             for(let value of values){
-                words.push(value.data[0]);
+                words.push(value);
             }
-            console.log('words: ', words);
+            return words;
         });
 
-        return words;
 
     }
 }
