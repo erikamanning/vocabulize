@@ -1,26 +1,22 @@
-import React, {useContext} from "react"
-import {DeckContext} from '../App'
+import React, {useState, useContext, useEffect} from "react"
+import {DeckContext,CounterContext} from '../App'
+import { v4 as uuidv4 } from 'uuid';
+
+
 const Deck = () => {
-
-    const {deck} = useContext(DeckContext);
-
-    deck.map(card=>console.log(card.word));
+    console.log('Rendering Deck Component');
+    const deck = useContext(DeckContext);
 
     return (
         <div>
-            {
-                deck.length ? 
-
+            {deck
+                ?
                     <div>
                         <h1>This is your Deck</h1>
-                        <ul>
-                            {deck.map((card)=>{<li>{card.word}</li>})}
-                        </ul>      
+                        {deck.map((card)=>(<p key={uuidv4()}>{card.word}</p>))}
                     </div>
-                    :
-                    <h2>No deck yet</h2>      
+                :   null
             }
-
         </div>
     )
 }
