@@ -2,40 +2,38 @@ import './App.css';
 import RandomWordsAPI from './RandomWordsAPI';
 import Navigation from './Navigation'
 import React, {useEffect,useState} from "react"
-
+import Deck from './Deck/Deck'
 const DeckContext = React.createContext();
-
+const  CounterContext= React.createContext();
 
 function App() {
 
-  const [deck, setDeck] = useState([]);
+  const [deck, setDeck] = useState(false);
 
   useEffect(()=>{
 
     async function getWords(){
 
-      let words = await RandomWordsAPI.getWords();
-      console.log('Word: ', words);
+      let words = await RandomWordsAPI.getWords(2);
+      console.log('Words: ', words);
       setDeck(words);
     }
 
-    if(deck && deck.length === 0){
+    if(!deck){
       getWords();
     }
 
   },[deck]);
 
-  console.log('Deck: ', deck);
-
   return (
-    <div className="App">
-      <DeckContext.Provider value={{deck}}>
-        <h1>Welcome to Vocabulize</h1>
-        <Navigation />
-      </DeckContext.Provider>
-    </div>
+          <div className="App">
+            <DeckContext.Provider value={deck}>
+              <h1>Welcome to Vocabulize</h1>
+              <Navigation />
+            </DeckContext.Provider>
+          </div>
   );
 }
 
-export {DeckContext};
+export {DeckContext,CounterContext};
 export default App;
