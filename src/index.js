@@ -12,9 +12,10 @@ import Deck from './Components/Deck/Deck'
 import Quiz from './Components/Quiz/Quiz'
 
 
+
 ReactDOM.render(
   <React.StrictMode>
-      <BrowserRouter>
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} >
           <Route path="deck" element={<Deck />}/>
