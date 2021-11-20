@@ -2,7 +2,6 @@ import './App.css';
 import RandomWordsAPI from './RandomWordsAPI';
 import Navigation from './Navigation'
 import React, {useEffect,useState} from "react"
-import Deck from './Deck/Deck'
 const DeckContext = React.createContext();
 const  CounterContext= React.createContext();
 
