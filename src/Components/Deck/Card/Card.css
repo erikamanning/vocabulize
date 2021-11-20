@@ -1,0 +1,9 @@
+.Card{
+
+    border: 1px solid teal;
+    margin-bottom: 5%;
+}
+.Card-title{
+    margin-left: 5%;
+    text-align: left;
+}
