@@ -1,5 +1,5 @@
 import React, {useContext} from "react"
-import { CardContext } from "./Card";
+import { CardContext } from "../Card";
 
 
 const CardFront = () => {

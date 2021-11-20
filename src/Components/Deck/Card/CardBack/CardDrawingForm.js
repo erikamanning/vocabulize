@@ -5,7 +5,7 @@ const CardDrawingForm = () => {
 
     return (
         <div>
-            <h1>This is your CardDrawingForm</h1>
+            <h1>CardDrawingForm</h1>
         </div>
     )
 

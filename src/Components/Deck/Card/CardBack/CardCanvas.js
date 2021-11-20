@@ -5,7 +5,7 @@ const CardCanvas = () => {
 
     return (
         <div>
-            <h1>This is your CardCanvas</h1>
+            <h1>CardCanvas</h1>
         </div>
     )
 

@@ -5,7 +5,7 @@ const CardBack = () => {
 
     return (
         <div>
-            <h1>This is your CardBack</h1>
+            <h1>CardBack</h1>
         </div>
     )
 
