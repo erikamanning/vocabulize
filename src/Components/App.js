@@ -13,7 +13,7 @@ function App() {
 
     async function getWords(){
 
-      let words = await RandomWordsAPI.getWords(2);
+      let words = await RandomWordsAPI.getWords(1);
       console.log('Words: ', words);
       setDeck(words);
     }
