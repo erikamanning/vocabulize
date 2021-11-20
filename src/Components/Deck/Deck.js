@@ -1,5 +1,7 @@
-import React, {useState, useContext, useEffect} from "react"
-import {DeckContext,CounterContext} from '../App'
+import React, {useContext} from "react"
+import {DeckContext} from '../App'
+import './Deck.css'
+import Card from './Card/Card'
 import { v4 as uuidv4 } from 'uuid';
 
 
@@ -8,16 +10,16 @@ const Deck = () => {
     const deck = useContext(DeckContext);
 
     return (
-        <div>
+        <>
             {deck
                 ?
-                    <div>
-                        <h1>This is your Deck</h1>
-                        {deck.map((card)=>(<p key={uuidv4()}>{card.word}</p>))}
+                    <div className='Deck'>
+                        <h1 className='Deck-title'>Deck:</h1>
+                        {deck.map((card)=>(<Card key={uuidv4()} card={card}/>))}
                     </div>
                 :   null
             }
-        </div>
+        </>
     )
 }
 
