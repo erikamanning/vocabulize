@@ -1,9 +1,14 @@
 .CardBack-drawing{
+    width: 50%;
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto 
 
-    width: 30%;
 }
 
 .CardBack-button-container{
+    position: absolute;
+    bottom:1vw;
 
-    margin-bottom: 5%;
 }

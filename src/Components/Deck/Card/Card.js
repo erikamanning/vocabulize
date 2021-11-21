@@ -1,7 +1,7 @@
-import React, {useState} from "react"
-import './Card.css'
-import CardFront from './CardFront/CardFront'
-import CardBack from './CardBack/CardBack'
+import React, {useState} from "react";
+import './Card.css';
+import CardFront from './CardFront/CardFront';
+import CardBack from './CardBack/CardBack';
 
 const CardContext = React.createContext();
 
@@ -20,13 +20,12 @@ const Card = ({card}) => {
     return (
         <CardContext.Provider value={card}>
             <div className='Card'>
-                <h5 className='Card-title'>Card</h5>
                 {
                     cardSide === "front"
                     ? <CardFront />
                     : <CardBack />
                 }
-                <button onClick={flipCard}>Flip Card</button>
+                <button className={'flip-card'} onClick={flipCard}>Flip Card</button>
             </div>
         </CardContext.Provider>
     )

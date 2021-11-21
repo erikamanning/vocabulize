@@ -9,9 +9,8 @@ const CardFront = () => {
     return (
 
             <div>
-                <h1>CardFront</h1>
-                <p><b>Word:</b> {card.word}</p>
-                <p><b>Definition:</b> {card.definition}</p>
+                <p className='card-word'><b>Word:</b> {card.word}</p>
+                <p className='definition'><b>Definition:</b> {card.definition}</p>
             </div>
     )
 

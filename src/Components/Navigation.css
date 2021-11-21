@@ -1,5 +1,21 @@
+.Navigation-container{
+    width: 100%;
+    display: inline-block;
+    transform: translateY(-4vh);
+}
+
 .Navigation-links{
-    margin-bottom: 5%;
-    padding-bottom: 5%;
-    border-bottom: 1px solid black;
+    direction: rtl;
+}
+.Navigation-links>a{
+    font-size: 1.5vw;
+    color: var(--text-accent);
+    text-decoration: none;
+    padding: 0 .5rem 0 .5rem;
+}
+
+.Navigation-links>a:hover{
+    background-color: var(--text-accent);
+    color: var(--text-accent);
+
 }

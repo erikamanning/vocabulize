@@ -1,7 +1,10 @@
 import './App.css';
 import RandomWordsAPI from './RandomWordsAPI';
-import Navigation from './Navigation'
-import React, {useEffect,useState} from "react"
+import Navigation from './Navigation';
+import Home from './Home';
+import React, {useEffect,useState} from "react";
+import { motion } from 'framer-motion';
+
 const DeckContext = React.createContext();
 const  CounterContext= React.createContext();
 
@@ -27,9 +30,17 @@ function App() {
   return (
           <div className="App">
             <DeckContext.Provider value={deck}>
-              <h1>Welcome to Vocabulize</h1>
-              <Navigation />
+              <motion.div
+                transition={{duration:1, delay:.5}}
+                inital={ {opacity:0}}
+                animate={{opacity:1, y:20}}>
+                <header>
+                  <h1 className='title'>Vocabulize</h1>
+                </header>
+                <Navigation />
+              </motion.div>
             </DeckContext.Provider>
+            <Home />
           </div>
   );
 }

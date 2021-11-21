@@ -1,9 +1,56 @@
 .Card{
-
-    border: 1px solid teal;
-    margin-bottom: 5%;
+    display: flexbox;
+    width: 60%;
+    height:30vw;
+    margin: auto;
+    padding-bottom: 10rem;
+    background-color: var(--neutral-color);
+    border-radius: 1rem;
+    border: 1px solid var(--gray);
+    padding: calc(40vw * .05);
+    font-size:24px;
+    word-wrap: wrap;
+    -moz-box-shadow:    3px 3px 5px var(--drop-shadow-color);
+    -webkit-box-shadow: 3px 3px 5px var(--drop-shadow-color);
+    box-shadow:         3px 3px 5px var(--drop-shadow-color);
 }
-.Card-title{
-    margin-left: 5%;
-    text-align: left;
+
+.card-word{
+    font-size: 4vw;
+    color: var(--text-color);
+    margin-top: 0;
+    margin-bottom: 2rem;
+
+}
+
+.definition{
+    font-size: 2vw;
+}
+button{
+    color: var(--text-accent);
+    border: none;
+    background-color: transparent;
+    padding: .5rem;
+    font-family: sophia, sans-serif;
+    font-weight: 600;
+    font-size: .7em;
+    margin: .2rem;
+  }
+
+button:hover{
+    cursor: pointer;
+    background-color: var(--gray);
+    border: 5px solid var(--gray);
+    border-radius: 100%;
+}
+
+.flip-card{
+    position: absolute;
+    bottom:1vw;
+    right: 15vw;
+}
+.flip-card:hover{
+    background-color: var(--gray);
+    border: 5px solid var(--gray);
+    border-radius: 100%;
 }
