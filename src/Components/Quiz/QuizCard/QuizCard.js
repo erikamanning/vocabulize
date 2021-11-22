@@ -14,7 +14,7 @@ const QuizCard = ({question}) => {
         <div className='QuizCard'>
             <h1>QuizCard</h1>
             <QuizCardText word={question.word} />
-            <QuizCardAnswers answers={[question.answer, question.wrongAnswer1, question.wrongAnswer2]}/>
+            <p className='QuizCard-drawing-title'><b>Drawing:</b></p>
             {
                 mode === 'easy'
                 ? <div> 
@@ -25,6 +25,9 @@ const QuizCard = ({question}) => {
                 </div>
                 : <p className='QuizCard-no-drawing-message'><i>No drawing shown on Hard Mode.</i></p>
             }
+
+            <QuizCardAnswers answers={[question.answer, question.wrongAnswer1, question.wrongAnswer2]}/>
+
         </div>
     )
 
