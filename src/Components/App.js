@@ -66,7 +66,6 @@ function App() {
                 <Navigation />
               </motion.div>
             </DeckContext.Provider>
-            <Home />
           </div>
   );
 }
