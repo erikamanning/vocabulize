@@ -1,0 +1,13 @@
+.QuizCard{
+    border: 1px solid black;
+    border-radius: 3%;
+    width: 50%;
+    background-color: white;
+    padding-left: 5%;
+    margin-bottom: 5%;
+}
+
+.QuizCard-no-drawing-message{
+    font-size: .9em;
+    color: blue;
+}
