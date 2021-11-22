@@ -4,6 +4,7 @@ import Navigation from './Navigation';
 import Home from './Home';
 import React, {useEffect,useState} from "react";
 import { motion } from 'framer-motion';
+import { v4 as uuidv4 } from 'uuid';
 
 const DeckContext = React.createContext();
 const  CounterContext= React.createContext();
