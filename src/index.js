@@ -10,17 +10,26 @@ import {
 } from "react-router-dom";
 import Deck from './Components/Deck/Deck'
 import Quiz from './Components/Quiz/Quiz'
-
+import Home from './Components/Home'
 
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Routes>
+      <Routes> 
         <Route path="/" element={<App />} >
+          <Route index element={<Home />}/>
           <Route path="deck" element={<Deck />}/>
           <Route path="quiz" element={<Quiz />}/>
-        </Route>      
+        </Route>
+        <Route
+            path="*"
+            element={
+              <main style={{ padding: "1rem" }}>
+                <p>There's nothing here!</p>
+              </main>
+            }
+          />      
       </Routes>      
     </BrowserRouter>
   </React.StrictMode>,
