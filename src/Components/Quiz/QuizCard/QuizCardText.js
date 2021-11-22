@@ -1,12 +1,12 @@
 import React from "react"
 
-const QuizCardText = () => {
+const QuizCardText = ({word}) => {
 
 
     return (
 
         <div>
-            <h1>QuizCardText</h1>
+            <h3><b>Word: </b>{word}</h3>
         </div>
     )
 
