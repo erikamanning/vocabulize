@@ -2,6 +2,7 @@ import React, {useContext, useEffect, useState} from "react"
 import { DeckContext } from "../App"
 import QuizCard from "./QuizCard/QuizCard";
 import { v4 as uuidv4 } from 'uuid';
+import { motion } from "framer-motion";
 import './Quiz.css'
 
 const QuizContext = React.createContext();
@@ -119,7 +120,11 @@ const Quiz = () => {
 
 
     return (
-        <div className='Quiz'>
+        <motion.div
+        initial={{ opacity: 0, y:20}}
+        animate={{ opacity: 1, y:0 }}
+        transition={{duration:1, delay:.5}}
+        className='Quiz'>
             <h1 className='Quiz-title'>Quiz</h1>
             <h3><b>Mode: </b> <span className='Quiz-mode'>{mode.toUpperCase()}</span></h3>
             <label className="mode-switch">
@@ -136,7 +141,7 @@ const Quiz = () => {
 
             </QuizContext.Provider>
 
-        </div>
+        </motion.div>
     )
 
 }
