@@ -1,3 +1,9 @@
+.home-top{
+    display: flex;
+    font-size: 60pt;
+    text-align: center;
+
+}
 
 .home-about-container{
         display: flex;
