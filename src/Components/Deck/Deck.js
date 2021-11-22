@@ -35,12 +35,12 @@ const Deck = () => {
                 ?
                     <div className='Deck'>
                         <h1 className='Deck-title'>Deck:</h1>
+                        <h2 className='Deck-center'>{currentCard} of {DECK_SIZE}</h2>
                         <Card key={uuidv4()} card={deck[currentCard]}/>
-                        <div>                            
-                            <button onClick={previousCard} >Previous</button>
-                            <button onClick={nextCard} >Next</button>
+                        <div className='Deck-center'>                            
+                            <button className='Deck-button' onClick={previousCard} >Previous</button>
+                            <button className='Deck-button' onClick={nextCard} >Next</button>
                         </div>
-                        <h2>{currentCard} of {DECK_SIZE}</h2>
                     </div>
                 :   null
             }
