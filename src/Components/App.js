@@ -28,9 +28,20 @@ function App() {
 
   },[deck]);
 
+  const updateDrawing = (cardId, drawing) => {
+
+      let card = deck[cardId];
+      card['drawing'] = drawing;      
+
+      setDeck(d=>({
+        ...d,
+        [cardId]:card
+      }));
+  }
+
   return (
           <div className="App">
-            <DeckContext.Provider value={deck}>
+            <DeckContext.Provider value={{deck, updateDrawing}}>
               <motion.div
                 transition={{duration:1, delay:.5}}
                 inital={ {opacity:0}}
