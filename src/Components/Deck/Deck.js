@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 const Deck = () => {
     console.log('Rendering Deck Component');
-    const deck = useContext(DeckContext);
+    const {deck} = useContext(DeckContext);
 
     return (
         <>
@@ -15,7 +15,7 @@ const Deck = () => {
                 ?
                     <div className='Deck'>
                         <h1 className='Deck-title'>Deck:</h1>
-                        {deck.map((card)=>(<Card key={uuidv4()} card={card}/>))}
+                        {Object.keys(deck).map((cardId)=>(<Card key={uuidv4()} card={deck[cardId]}/>))}
                     </div>
                 :   null
             }
