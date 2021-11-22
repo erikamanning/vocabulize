@@ -6,10 +6,10 @@
 }
 
 .Navigation-links{
-    
+    transform: translateX(1%);
 }
 .Navigation-links>a{
-    font-size: 12;
+    font-size: 16pt;
     color: var(--text-accent);
     text-decoration: none;
     padding: 0 .5rem 0 0;

@@ -22,7 +22,7 @@
 
 }
 .card-word{
-    font-size: 4vw;
+    font-size: 24pt;
     color: var(--text-color);
     margin-top: 0;
     margin-bottom: 1em;
@@ -31,7 +31,7 @@
 }
 
 .definition{
-    font-size: 2.2vw;
+    font-size: 20pt;
 }
 button{
     color: var(--text-accent);
@@ -51,6 +51,6 @@ button:hover{
 
 .flip-card{
     position: absolute;
-    right: 8vw;
+    right: 9vw;
 }
 

@@ -1,11 +1,9 @@
 .home-explanatation-container{
     display:flex;
-
     margin-top: 35%;
     background-color: var(--text-color);
 }
 .home-explanatation-container>div{
-
     margin: 20% 2% 20% 2%;
 }
 

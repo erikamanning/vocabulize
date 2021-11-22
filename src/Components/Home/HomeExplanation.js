@@ -18,19 +18,19 @@ const HomeExplanation = () => {
                     <motion.div className='Card'>               
                         <div>
                             <h1 className='card-word home-card'>Start a Deck</h1>
-                            <p className='definition home-card'></p>
+                            <p className='definition home-card'>Click above to get a set of vocab cards to memorize.</p>
                         </div>
                     </motion.div>
                     <motion.div className='Card'>               
                         <div>
                             <h1 className='card-word home-card'>Flip the Card</h1>
-                            <p className='definition home-card'>Make a drawing using the canvas to help you remember the word</p>
+                            <p className='definition home-card'>Make a drawing using the canvas on the back size of the card to help you remember.</p>
                         </div>
                     </motion.div>
                     <div className='Card'>               
                         <div>
                             <h1 className='card-word home-card'>Vocabulize!</h1>
-                            <p className='definition home-card'>Use your drawing to aid you in memorizing</p>
+                            <p className='definition home-card'>Use your drawings to learn faster, and better.</p>
                         </div>
                     </div>
                 </motion.div>
