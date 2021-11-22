@@ -1,7 +1,10 @@
 import React, {useContext, useEffect, useState} from "react"
 import { DeckContext } from "../App"
 import QuizCard from "./QuizCard/QuizCard";
+import { v4 as uuidv4 } from 'uuid';
+import './Quiz.css'
 
+const QuizContext = React.createContext();
 
 const Quiz = () => {
 
@@ -9,6 +12,7 @@ const Quiz = () => {
 
     const {deck} = useContext(DeckContext);
     const [quiz,setQuiz] = useState(false);
+    const [mode,setMode] = useState('easy');
 
     useEffect(()=>{
 
@@ -86,10 +90,13 @@ const Quiz = () => {
 
         for(let qdId of quizDataIds){
 
+            console.log('**** DRAWING: ', deck[qdId.card]);
+
             quizQuestions.push({
 
                 word: deck[qdId.card].word,
                 answer:deck[qdId.card].definition,
+                drawing:deck[qdId.card].drawing,
                 wrongAnswer1:deck[qdId.wrongCard1].definition,
                 wrongAnswer2: deck[qdId.wrongCard2].definition
             });
@@ -100,24 +107,39 @@ const Quiz = () => {
         return quizQuestions;
     }
 
-
+    const handleSwitch = ()=>{
+        if(mode==='easy')
+            setMode('hard');
+        else
+            setMode('easy');
+    }
 
 
 
 
 
     return (
-        <div>
-            <h1>This is your Quiz</h1>
+        <div className='Quiz'>
+            <h1 className='Quiz-title'>Quiz</h1>
+            <h3><b>Mode: </b> <span className='Quiz-mode'>{mode.toUpperCase()}</span></h3>
+            <label className="mode-switch">
+                <input onChange={handleSwitch} type="checkbox" />
+                <span className="slider round"></span>
+            </label>
+            <QuizContext.Provider value={{quiz,mode}}>
 
-            {
-                quiz 
-                ? <div>{quiz.map((question)=>(<QuizCard question={question} />))}</div>
-                : <p>Loading Quiz...</p>
-}
+                {
+                    quiz 
+                    ? <div>{quiz.map((question)=>(<QuizCard key={uuidv4()} question={question} />))}</div>
+                    : <p>Loading Quiz...</p>
+                }
+
+            </QuizContext.Provider>
+
         </div>
     )
 
 }
 
+export {QuizContext};
 export default Quiz;
