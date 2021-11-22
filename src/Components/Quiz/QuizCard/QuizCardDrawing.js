@@ -1,12 +1,15 @@
 import React from "react"
+import './QuizCardDrawing.css'
 
-const QuizCardDrawing = () => {
+const QuizCardDrawing = ({drawing}) => {
 
+    let dataURL = drawing.toDataURL();
 
     return (
 
         <div>
-            <h1>QuizCardDrawing</h1>
+            <h3>QuizCardDrawing</h3>
+            <img src="dataURL" alt="word-drawing" />
         </div>
     )
 
