@@ -8,7 +8,7 @@ const CardFront = () => {
 
     return (
 
-            <div>
+            <div className='card-container'>
                 <p className='card-word'><b>Word:</b> {card.word}</p>
                 <p className='definition'><b>Definition:</b> {card.definition}</p>
             </div>

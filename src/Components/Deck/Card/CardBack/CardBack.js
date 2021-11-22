@@ -21,7 +21,7 @@ const CardBack = () => {
     }
 
     return (
-        <div>
+        <div className='card-container'>
             <h5 className='card-word'>{card.word}</h5>
 
             {
@@ -36,7 +36,7 @@ const CardBack = () => {
                 : <CardCanvas/>
             }
             <div className='CardBack-button-container'>   
-                <button onClick={accessCanvas}>   
+                <button className='update' onClick={accessCanvas}>   
                     {
                         drawing 
                         ? 'Update'

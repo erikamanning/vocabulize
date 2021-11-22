@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import './Deck/Card/Card.css';
-import HomeExplanation from './Home/HomeExplanation';
+import '../Deck/Card/Card.css';
+
 
 const Home = () => {
     return(
@@ -13,7 +13,7 @@ const Home = () => {
                 </div>
             
             </div>
-            <HomeExplanation />
+
         </div>
     )
 }
