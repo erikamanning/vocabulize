@@ -3,26 +3,33 @@ import { motion } from "framer-motion";
 import '../Tranisitions/Object-in.css';
 import '../Tranisitions/Object-in';
 import '../Deck/Card/Card.css';
+import './HomeExplanation.css'
 
 const HomeExplanation = () => {
     return(
-        <div className='js-scroll fade-in-bottom'>
+        <motion.div
+        animate={{opacity:0}}
+        transition={{delay:1}}
+        className='home-explanatation-container'>
             <div className='Card'>               
                 <div>
-                    <h1 className='card-word home-card'>Start with a word</h1>
-                    <p className='definition home-card'>The best place to study for visual learners</p>
+                    <h1 className='card-word home-card'>Start a Deck</h1>
+                    <p className='definition home-card'></p>
                 </div>
-                <button className={'flip-card'}>Get Started</button>
             </div>
             <div className='Card'>               
                 <div>
-                    <h1 className='card-word home-card'>Start with a word</h1>
-                    <p className='definition home-card'>The best place to study for visual learners</p>
+                    <h1 className='card-word home-card'>Flip the Card</h1>
+                    <p className='definition home-card'>Make a drawing using the canvas to help you remember the word</p>
                 </div>
-                <button className={'flip-card'}>Get Started</button>
             </div>
-            
-        </div>
+            <div className='Card'>               
+                <div>
+                    <h1 className='card-word home-card'>Vocabulize!</h1>
+                    <p className='definition home-card'>Use your drawing to aid you in memorizing</p>
+                </div>
+            </div>
+        </motion.div>
     )
 }
 

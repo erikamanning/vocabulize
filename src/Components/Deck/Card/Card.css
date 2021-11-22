@@ -31,7 +31,7 @@
 }
 
 .definition{
-    font-size: 2vw;
+    font-size: 2.2vw;
 }
 button{
     color: var(--text-accent);
@@ -51,6 +51,6 @@ button:hover{
 
 .flip-card{
     position: absolute;
-    right: 7vw;
+    right: 8vw;
 }
 

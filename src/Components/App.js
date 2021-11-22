@@ -1,7 +1,6 @@
 import './App.css';
 import RandomWordsAPI from './RandomWordsAPI';
 import Navigation from './Navigation';
-import Home from './Home/Home';
 import React, {useEffect,useState} from "react";
 import { motion } from 'framer-motion';
 import { v4 as uuidv4 } from 'uuid';

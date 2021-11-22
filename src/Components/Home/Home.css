@@ -1,0 +1,10 @@
+
+.home-about-container{
+        display: flex;
+        margin-top:5vh;
+}
+.home-about{
+    text-align: center;
+    margin:auto;
+    color: var(--text-color);
+}
