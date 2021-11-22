@@ -1,5 +1,11 @@
-.Deck{
+.Deck-center{
+    text-align: center;
 }
 .Deck-title{
     text-align: left;
+}
+
+.Deck-button{
+    font-size: 2em;
+    color: #1894ef;
 }
