@@ -22,8 +22,8 @@ const Card = ({card}) => {
 
         <CardContext.Provider value={card}>
             <motion.div
-                initial={{ opacity: 0, x:20}}
-                animate={{ opacity: 1, x:0 }}
+                initial={{ opacity: 0, y:20}}
+                animate={{ opacity: 1, y:0 }}
                 transition={{duration:1, delay:.5}}
                 className='Card'>
                 {
@@ -31,7 +31,12 @@ const Card = ({card}) => {
                     ? <CardFront />
                     : <CardBack />
                 }
+                <motion.div
+                    initial={{ opacity: 0}}
+                    animate={{ opacity: 1 }}
+                    transition={{duration:1, delay:1.5}}>
                 <button className={'flip-card'} onClick={flipCard}>Flip Card</button>
+                </motion.div>
             </motion.div>
         </CardContext.Provider>
 
