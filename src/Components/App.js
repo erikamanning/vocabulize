@@ -13,12 +13,26 @@ function App() {
 
   const [deck, setDeck] = useState(false);
 
+  const initializeDeck = (deckData) => {
+
+    const myDeck = {};
+
+    for(let card of deckData){
+
+      let cardId = uuidv4();
+      card['drawing'] = false;
+      card['id'] = cardId;   
+      myDeck[cardId] = card;
+    }
+    return myDeck;
+  }
+
   useEffect(()=>{
 
     async function getWords(){
 
       let words = await RandomWordsAPI.getWords(1);
-      console.log('Words: ', words);
+      words = initializeDeck(words);
       setDeck(words);
     }
 
