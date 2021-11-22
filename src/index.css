@@ -42,8 +42,9 @@ header{
 .title{
   display: flex;
   position: relative;
+  margin-top: 0;
   margin-bottom: 0;
-  font-size: 60pt;
+  font-size: 46pt;
   font-weight: 500;
   -webkit-transition: color 1s ease-out;
   -moz-transition: color 1s ease-out;

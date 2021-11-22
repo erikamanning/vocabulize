@@ -24,7 +24,6 @@ const Home = () => {
             </div>
             <HomeExplanation />
             <HomeAbout />
-            <Link className='get-started' to="/deck">Get Started</Link>
         </div>
     )
 }

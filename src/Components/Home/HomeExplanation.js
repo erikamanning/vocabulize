@@ -16,19 +16,19 @@ const HomeExplanation = () => {
                 transition={{duration:.8}}
                 className='home-explanatation-container'>
                     <motion.div className='Card'>               
-                        <div>
+                        <div className='card-container'>
                             <h1 className='card-word home-card'>Start a Deck</h1>
                             <p className='definition home-card'>Click above to get a set of vocab cards to memorize.</p>
                         </div>
                     </motion.div>
                     <motion.div className='Card'>               
-                        <div>
+                        <div className='card-container'>
                             <h1 className='card-word home-card'>Flip the Card</h1>
                             <p className='definition home-card'>Make a drawing using the canvas on the back size of the cardto help you remember.</p>
                         </div>
                     </motion.div>
                     <div className='Card'>               
-                        <div>
+                        <div className='card-container'>
                             <h1 className='card-word home-card'>Vocabulize!</h1>
                             <p className='definition home-card'>Use your drawings to learn faster, and better.</p>
                         </div>
