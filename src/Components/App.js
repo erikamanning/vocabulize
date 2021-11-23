@@ -4,6 +4,7 @@ import Navigation from './Navigation';
 import React, {useEffect,useState} from "react";
 import { motion } from 'framer-motion';
 import { v4 as uuidv4 } from 'uuid';
+import { Link } from 'react-router-dom';
 
 const DECK_SIZE = 3; 
 const DeckContext = React.createContext();
@@ -62,7 +63,7 @@ function App() {
                 inital={ {opacity:0}}
                 animate={{opacity:1, y:20}}>
                 <header>
-                  <h1 className='title'>Vocabulize</h1>
+                  <Link to='/' className='title'>Vocabulize</Link>
                 </header>
                 <Navigation />
               </motion.div>
