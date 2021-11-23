@@ -51,11 +51,17 @@ header{
   -o-transition: color 1s ease-out;
   -ms-transition: color 1s ease-out;
   transition: color 1s ease-out;
+  text-decoration: none;
 }
 .title:hover{
-  cursor:context-menu;
+  cursor:pointer;
   transition: .5s ease;
   color: var(--neutral-color);
+}
+
+.title:visited{
+  text-decoration: none;
+  color: var(--text-color);
 }
 
 code {

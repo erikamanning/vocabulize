@@ -1,3 +1,7 @@
+.Deck{
+    margin-top: 10vh;
+}
+
 .Deck-center{
     text-align: center;
 }
@@ -12,4 +16,5 @@
 
 .Deck-red{
     color: #cb3126;
+
 }
