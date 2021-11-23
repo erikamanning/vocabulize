@@ -4,6 +4,9 @@ import QuizCard from "./QuizCard/QuizCard";
 import { v4 as uuidv4 } from 'uuid';
 import { motion } from "framer-motion";
 import './Quiz.css'
+import {DECK_SIZE} from '../App'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowAltCircleRight, faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons'
 
 const QuizContext = React.createContext();
 
@@ -14,6 +17,11 @@ const Quiz = () => {
     const {deck} = useContext(DeckContext);
     const [quiz,setQuiz] = useState(false);
     const [mode,setMode] = useState('easy');
+    const firstCardNum=1;
+    const [currentCard,setCurrentCard] = useState(firstCardNum);
+    const arrowLeftIcon = <FontAwesomeIcon icon={faArrowAltCircleLeft} />;
+    const arrowRightIcon = <FontAwesomeIcon icon={faArrowAltCircleRight} />;
+
 
     useEffect(()=>{
 
@@ -86,25 +94,26 @@ const Quiz = () => {
 
     const makeQuiz = (quizDataIds) => {
 
-        let quizQuestions = [];
-
+        let quizQuestions = {};
+        let questionNum = 1;
 
         for(let qdId of quizDataIds){
 
             console.log('**** DRAWING: ', deck[qdId.card]);
 
-            quizQuestions.push({
+            quizQuestions[questionNum]={
 
                 word: deck[qdId.card].word,
                 answer:deck[qdId.card].definition,
                 drawing:deck[qdId.card].drawing,
                 wrongAnswer1:deck[qdId.wrongCard1].definition,
                 wrongAnswer2: deck[qdId.wrongCard2].definition
-            });
+            };
 
+            questionNum++;
         }
 
-        console.log('Quiz Questions: ', quizQuestions);
+        console.log('Quiz Questions: ', Object.entries(quizQuestions));
         return quizQuestions;
     }
 
@@ -115,33 +124,65 @@ const Quiz = () => {
             setMode('easy');
     }
 
+    const nextCard = () => {
+        if(currentCard<DECK_SIZE){
+            setCurrentCard(cc=>cc+1);
+        }
+        else{
+            alert('You are already on the LAST question!')
+        }
+    }
+
+    const previousCard = () => {
+        if(currentCard>1){
+            setCurrentCard(cc=>cc-1);
+        }
+        else{
+            alert('You are already on the FIRST question!')
+        }
+    }
 
 
 
 
     return (
-        <motion.div
-        initial={{ opacity: 0, y:20}}
-        animate={{ opacity: 1, y:0 }}
-        transition={{duration:1, delay:.5}}
-        className='Quiz'>
-            <h1 className='Quiz-title'>Quiz</h1>
-            <h3><b>Mode: </b> <span className='Quiz-mode'>{mode.toUpperCase()}</span></h3>
-            <label className="mode-switch">
-                <input onChange={handleSwitch} type="checkbox" />
-                <span className="slider round"></span>
-            </label>
-            <QuizContext.Provider value={{quiz,mode}}>
+        <div>
+            {quiz
+                ?
+                <motion.div
+                initial={{ opacity: 0, y:20}}
+                animate={{ opacity: 1, y:0 }}
+                transition={{duration:1, delay:.5}}
+                className='Quiz'>
+                    <h1 className='Quiz-title'>Quiz</h1>
+                    <h3><b>Mode: </b> <span className='Quiz-mode'>{mode.toUpperCase()}</span></h3>
+                    <label className="mode-switch">
+                        <input onChange={handleSwitch} type="checkbox" />
+                        <span className="slider round"></span>
+                    </label>
+                    <QuizContext.Provider value={{quiz,mode}}>
 
-                {
-                    quiz 
-                    ? <div>{quiz.map((question)=>(<QuizCard key={uuidv4()} question={question} />))}</div>
-                    : <p>Loading Quiz...</p>
+                        {
+                            quiz 
+                            ? <QuizCard key={uuidv4()} question={quiz[currentCard]} />
+                            : <p>Loading Quiz...</p>
+                        }
+                        <h2 className='Quiz-center Quiz-red'>{currentCard} of {DECK_SIZE}</h2>
+
+                        <div className='Quiz-center'>                 
+                            <button className='Quiz-button' onClick={previousCard} >{arrowLeftIcon}</button>
+                            <button className='Quiz-button' onClick={nextCard} >{arrowRightIcon}</button>
+                        </div>
+
+
+                    </QuizContext.Provider>
+
+                </motion.div>
+
+                :null
                 }
+        </div>
 
-            </QuizContext.Provider>
-
-        </motion.div>
     )
 
 }

@@ -9,8 +9,26 @@
 }
 
 .Quiz-mode{
-    color: purple;
+    color: #1894ef;
 }
+.Quiz-center{
+  text-align: center;
+}
+.Quiz-title{
+  text-align: left;
+}
+
+.Quiz-red{
+  color: #cb3126;
+
+}
+
+.Quiz-button{
+  font-size: 2em;
+  color: #1894ef;
+}
+
+
 
 /* The switch - the box around the slider */
 .mode-switch {

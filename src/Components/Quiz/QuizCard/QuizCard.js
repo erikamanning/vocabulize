@@ -20,8 +20,8 @@ const QuizCard = ({question}) => {
                     mode === 'easy'
                     ? <div> 
                         { question.drawing
-                        ? <QuizCardDrawing drawing={question}/>
-                        : <p className='QuizCard-no-drawing-message'>No drawing yet!</p>
+                        ? <QuizCardDrawing drawing={question.drawing}/>
+                        : <p className='QuizCard-no-drawing-message'><i>No drawing yet!</i></p>
                       }
                     </div>
                     : <p className='QuizCard-no-drawing-message'><i>No drawing shown on Hard Mode.</i></p>

@@ -42,8 +42,8 @@ const Deck = () => {
                 ?
                     <div className='Deck'>
                         <h1 className='Deck-title'>Deck:</h1>
-                        <h2 className='Deck-center'>{currentCard} of {DECK_SIZE}</h2>
                         <Card key={uuidv4()} card={deck[currentCard]}/>
+                        <h2 className='Deck-center Deck-red'>{currentCard} of {DECK_SIZE}</h2>
                         <div className='Deck-center'>                            
                             <button className='Deck-button' onClick={previousCard} >{arrowLeftIcon}</button>
                             <button className='Deck-button' onClick={nextCard} >{arrowRightIcon}</button>
