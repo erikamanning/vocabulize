@@ -1,6 +1,7 @@
 import './App.css';
 import RandomWordsAPI from './RandomWordsAPI';
 import Navigation from './Navigation';
+import { Link } from 'react-router-dom';
 import React, {useEffect,useState} from "react";
 import { motion } from 'framer-motion';
 import { v4 as uuidv4 } from 'uuid';
@@ -62,7 +63,7 @@ function App() {
                 inital={ {opacity:0}}
                 animate={{opacity:1, y:20}}>
                 <header>
-                  <h1 className='title'>Vocabulize</h1>
+                  <Link className='title' to='/'>Vocabulize</Link>
                 </header>
                 <Navigation />
               </motion.div>
