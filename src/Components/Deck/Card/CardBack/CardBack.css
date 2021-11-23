@@ -9,9 +9,8 @@
 }
 
 .save{
-    position: absolute;
-    right: 9vw;
-    transform: translateY(-10px);
+    display: flex;
+    margin-left: auto;
 
 }
 .CardBack-button-container{
