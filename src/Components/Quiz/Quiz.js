@@ -7,6 +7,8 @@ import './Quiz.css'
 import {DECK_SIZE} from '../App'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowAltCircleRight, faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons'
+import { getRandIndex, shuffleArr } from "../../helpers";
+
 
 const QuizContext = React.createContext();
 
@@ -25,96 +27,23 @@ const Quiz = () => {
 
     useEffect(()=>{
 
-
         if(!quiz){
-            const cardIds = Object.keys(deck);
-            const shuffledCards = shuffleDeck(cardIds);
-            let quizDataIds = getQuizDataIds(shuffledCards);
-            setQuiz(makeQuiz(quizDataIds));
+            const shuffledCardIds = shuffleDeck(deck);
+            setQuiz(shuffledCardIds);
         }
     },[]);
 
+    /*
 
-    const getRandIndex = (arr)=>{
+        updateQuizScore functions
+        increaseScore & decrease score
 
-        let max = arr.length-1;
-        return Math.floor(Math.random() * (max - 0 + 1));
-    }
+    */
 
-    const getRandOtherCard = (arr)=>{
+    const shuffleDeck = (cards) => {
 
-        let randCard = arr[getRandIndex(arr)];
-        // console.log('randCard: ', randCard);
-        return randCard;
-    }
-
-    const shuffleDeck = (cardIds) => {
-
-        // console.log('card ids before shuffle: ', cardIds);
-
-        for (let i = cardIds.length - 1; i > 0; i--) {
-        
-            // Generate random number
-            let j = Math.floor(Math.random() * (i + 1));
-                        
-            [cardIds[i],cardIds[j]] = [cardIds[j], cardIds[i]];
-        }
-            
-        // console.log('card ids after shuffle: ', cardIds);
-
-        return cardIds;
-    }
-
-    const getQuizDataIds = (shuffledCardIds) => {
-
-        let quizDataIds = [];
-        let i=0;
-        for(let cardId of shuffledCardIds){
-            i++;
-            let cardsCopy = [...shuffledCardIds];
-            // console.log(`CARDSCOPY -- untouched - i=${i}`, cardsCopy);
-            cardsCopy.splice(cardsCopy.indexOf(cardId),1);
-            // console.log('CARDSCOPY -- after cardId splice', cardsCopy);
-            let wrongCard1 = [getRandOtherCard(cardsCopy)];
-            cardsCopy.splice(cardsCopy.indexOf(wrongCard1),1);
-            // console.log('CARDSCOPY -- after wrongCard1 splice', cardsCopy);
-            let wrongCard2 = [getRandOtherCard(cardsCopy)];
-            
-            quizDataIds.push({
-                card:cardId,
-                wrongCard1,
-                wrongCard2
-            })
-        }
-
-        console.log('quizDataIds: ', quizDataIds);
-
-        return quizDataIds;
-    }
-
-    const makeQuiz = (quizDataIds) => {
-
-        let quizQuestions = {};
-        let questionNum = 1;
-
-        for(let qdId of quizDataIds){
-
-            console.log('**** DRAWING: ', deck[qdId.card]);
-
-            quizQuestions[questionNum]={
-
-                word: deck[qdId.card].word,
-                answer:deck[qdId.card].definition,
-                drawing:deck[qdId.card].drawing,
-                wrongAnswer1:deck[qdId.wrongCard1].definition,
-                wrongAnswer2: deck[qdId.wrongCard2].definition
-            };
-
-            questionNum++;
-        }
-
-        console.log('Quiz Questions: ', Object.entries(quizQuestions));
-        return quizQuestions;
+        const cardIds = Object.keys(cards);
+        return shuffleArr(cardIds);
     }
 
     const handleSwitch = ()=>{
@@ -125,29 +54,22 @@ const Quiz = () => {
     }
 
     const nextCard = () => {
-        if(currentCard<DECK_SIZE){
+        if(currentCard<DECK_SIZE)
             setCurrentCard(cc=>cc+1);
-        }
-        else{
+        else
             alert('You are already on the LAST question!')
-        }
     }
 
     const previousCard = () => {
-        if(currentCard>1){
-            setCurrentCard(cc=>cc-1);
-        }
-        else{
+        if(currentCard>1)
+            setCurrentCard(cc=>cc-1); 
+        else
             alert('You are already on the FIRST question!')
-        }
     }
-
-
-
 
     return (
         <div>
-            {quiz
+            {deck && quiz
                 ?
                 <motion.div
                 initial={{ opacity: 0, y:20}}
@@ -164,7 +86,7 @@ const Quiz = () => {
 
                         {
                             quiz 
-                            ? <QuizCard key={uuidv4()} question={quiz[currentCard]} />
+                            ? <QuizCard key={uuidv4()} questionId={currentCard} />
                             : <p>Loading Quiz...</p>
                         }
                         <h2 className='Quiz-center Quiz-red'>{currentCard} of {DECK_SIZE}</h2>

@@ -1,6 +1,53 @@
-.Answer-letter{
-    background-color: royalblue;
+.Answer{
+    flex:row;
+    display: flex;
+    align-items: center;
+    margin-bottom: 5%;
+    padding: 1%;
+}
+
+.Answer:hover{
+    cursor: pointer;
+}
+
+.Answer-letter {
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    display: flex-box;
+    align-items: center;
+    text-align: center;
+    padding:1%;
+    margin-right: 2%;
+}
+
+.circle-blue{
+    background-color: #1894ef;
     color: white;
-    font-weight: 400;
-    border: 1px solid royalblue;
+}
+
+.circle-white{
+
+    background-color: white;
+    color: #1894ef;
+}
+
+.Answer-highlight{
+    /* text-decoration: #1894ef underline;
+     */
+    background-color: #1894ef;
+    color: white;
+    padding: 1%
+}
+
+.highlight-green{
+    background-color: green;
+    color: white;
+    padding: 1%
+}
+
+.highlight-red{
+    background-color: red;
+    color: white;
+    padding: 1%
 }
