@@ -17,7 +17,7 @@ const Home = () => {
                             scale: 1.1,
                             transition: { duration: 1, delay:0 },
                         }}
-                        style={{margin:'0 auto 0 auto', cursor:'pointer'}}>
+                        style={{margin:'0 auto 0 auto', cursor:'ontext-menu'}}>
                         <h1 style={{color:'var(--text-color'}}>Learn faster.</h1>
                         <p style={{color:'var(--text-accent'}}>Scroll to learn more</p>
                     </motion.div>
