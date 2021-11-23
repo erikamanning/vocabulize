@@ -30,19 +30,21 @@ body{
   animation: fadeInAnimation ease 3s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
+  margin: 0 0 0 0;
 }
 p{
   font-size: 2rem;
 }
 header{
   color:var(--text-color);
-  width: 50%;
+  margin: 0 0 0 5%;
 }
 .title{
   display: flex;
   position: relative;
+  margin-top: 0;
   margin-bottom: 0;
-  font-size: 3vw;
+  font-size: 46pt;
   font-weight: 500;
   -webkit-transition: color 1s ease-out;
   -moz-transition: color 1s ease-out;
@@ -56,66 +58,7 @@ header{
   color: var(--neutral-color);
 }
 
-/*
-button{
-  font-family: sofia, sans-serif;
-  font-size: 1rem;
-  font-weight: 500;
-  color: var(--text-accent);
-  background-color: var(--bg-color);
-  border-style: none;
-  border-radius: 1rem;
-  padding: 1rem;
-  width: 10rem;
-  height: 3rem;
-  justify-content: center;
-  vertical-align: baseline;
-
-  -moz-box-shadow:    inset 3px 3px 5px var(--inner-shadow-color), 3px 3px 5px var(--drop-shadow-color);
-  -webkit-box-shadow: inset 3px 3px 5px var(--inner-shadow-color), 3px 3px 5px var(--drop-shadow-color);
-  box-shadow:         inset 3px 3px 5px var(--inner-shadow-color), 3px 3px 5px var(--drop-shadow-color);
-
-  -webkit-transition: all .2s ease-out;
-  -moz-transition: all .2s ease-out;
-  -o-transition:all .2s ease-out;
-  -ms-transition: all .2s ease-out;
-  transition: all .2s ease-out;
-}
-
-button:hover{
-  color: var(--text-accent);
-  background-color: var(--button-hover-color);
-  border-style: none;
-
-
-  -moz-box-shadow:    inset 3px 3px 5px var(--drop-shadow-color), 3px 3px 5px var(--inner-shadow-color);
-  -webkit-box-shadow: inset 3px 3px 5px var(--drop-shadow-color), 3px 3px 5px var(--inner-shadow-color);
-  box-shadow:         inset 3px 3px 5px var(--drop-shadow-color), 3px 3px 5px var(--inner-shadow-color);
-
-  -webkit-transition: all .2s ease-out;
-  -moz-transition: all .2s ease-out;
-  -o-transition:all .2s ease-out;
-  -ms-transition: all .2s ease-out;
-  transition: all .2s ease-out;
-}
-*/
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
-
-
-.page-transition-enter{
-  opacity: .1;
-
-}
-
-.page-transition-enter.page-transition-enter-active {
-  opacity: 1;
-  transition: opacity 500ms ease-in;
-}
-
-.page-transition-leave {
-  opacity: 1;
 }

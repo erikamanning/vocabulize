@@ -36,7 +36,8 @@ const Deck = () => {
     }
 
     return (
-        <>
+        <div
+           >
             {deck
                 ?
                     <div className='Deck'>
@@ -50,7 +51,7 @@ const Deck = () => {
                     </div>
                 :   null
             }
-        </>
+        </div>
     )
 }
 

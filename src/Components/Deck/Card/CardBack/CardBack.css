@@ -8,8 +8,16 @@
 
 }
 
-.CardBack-button-container{
+.save{
     position: absolute;
-    bottom:1vw;
+    right: 9vw;
+    transform: translateY(-10px);
 
 }
+.CardBack-button-container{
+    display: flex;
+}
+.update{
+    margin-left: auto;
+}
+

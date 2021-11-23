@@ -1,8 +1,8 @@
 .Card{
-    display: flexbox;
-    width: 60%;
-    height:30vw;
-    margin: auto;
+    display: flex;
+    margin: auto ;
+    margin-bottom: 3vw;
+    width: 80%;
     padding-bottom: 10rem;
     background-color: var(--neutral-color);
     border-radius: 1rem;
@@ -15,16 +15,23 @@
     box-shadow:         3px 3px 5px var(--drop-shadow-color);
 }
 
+.card-container{
+    display:inline-block;
+    width: 100%;
+    min-height: 15vw;
+
+}
 .card-word{
-    font-size: 4vw;
+    font-size: 24pt;
     color: var(--text-color);
     margin-top: 0;
-    margin-bottom: 2rem;
+    margin-bottom: 1em;
+
 
 }
 
 .definition{
-    font-size: 2vw;
+    font-size: 20pt;
 }
 button{
     color: var(--text-accent);
@@ -33,24 +40,17 @@ button{
     padding: .5rem;
     font-family: sophia, sans-serif;
     font-weight: 600;
-    font-size: .7em;
+    font-size: 12pt;
     margin: .2rem;
   }
 
 button:hover{
     cursor: pointer;
     background-color: var(--gray);
-    border: 5px solid var(--gray);
-    border-radius: 100%;
 }
 
 .flip-card{
     position: absolute;
-    bottom:1vw;
-    right: 15vw;
+    right: 9vw;
 }
-.flip-card:hover{
-    background-color: var(--gray);
-    border: 5px solid var(--gray);
-    border-radius: 100%;
-}
+
