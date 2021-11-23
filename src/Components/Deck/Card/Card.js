@@ -24,7 +24,7 @@ const Card = ({card}) => {
             <motion.div
                 initial={{ opacity: 0, y:20}}
                 animate={{ opacity: 1, y:0 }}
-                transition={{duration:1, delay:.5}}
+                transition={{duration:.5}}
                 className='Card'>
                 {
                     cardSide === "front"
@@ -34,7 +34,7 @@ const Card = ({card}) => {
                 <motion.div
                     initial={{ opacity: 0}}
                     animate={{ opacity: 1 }}
-                    transition={{duration:1, delay:1.5}}>
+                    transition={{duration:.5, delay:.35}}>
                 <button className={'flip-card'} onClick={flipCard}>Flip Card</button>
                 </motion.div>
             </motion.div>

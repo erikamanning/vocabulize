@@ -49,12 +49,11 @@ const CardCanvas = () => {
   
   return <div>
             <p className='definition'>Draw <b>{card.word}</b> in the area below</p>
-            <button  className='save' onClick={saveDrawing}>Save</button>
             <div className='color-picker-wrapper'>
               <input onChange={handleChange} value={color} type="color" />
             </div>
             <canvas className={'CardCanvas'} ref={canvasRef} id="canvas" resize="true" />
-
+            <button  className='save' onClick={saveDrawing}>Save</button>
   </div>
 }
 
