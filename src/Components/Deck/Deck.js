@@ -42,7 +42,6 @@ const Deck = () => {
             {deck
                 ?
                     <div className='Deck'>
-                        <h2 className='Deck-center'>{currentCard} of {DECK_SIZE}</h2>
                         <Card key={uuidv4()} card={deck[currentCard]}/>
                         <h2 className='Deck-center Deck-red'>{currentCard} of {DECK_SIZE}</h2>
                         <div className='Deck-center'>                            
