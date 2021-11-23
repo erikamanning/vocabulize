@@ -1,7 +1,8 @@
 .CardCanvas{
     border: 2px dashed var(--bg-color);
-    height: 15vw;
     width: 100%;
+    display: block;
+
 }
 input[type='color']{
     border:none;
@@ -14,5 +15,6 @@ input[type='color']{
     width: 25px;
     height: 25px;
     background-color: black;
+    margin-bottom: 10px;
 
 }

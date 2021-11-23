@@ -1,5 +1,6 @@
 import React from "react"
 import { v4 as uuidv4 } from 'uuid';
+import '../../Deck/Card/Card.css'
 
 
 const QuizCardAnswers = ({answers}) => {
@@ -9,7 +10,7 @@ const QuizCardAnswers = ({answers}) => {
     return (
 
         <div>
-            <h5>Choose one of the following:</h5>
+            <h5 className='definition'>Choose one of the following:</h5>
             <ul>
                 {answers.map((answer)=>(<li key={uuidv4()}>{answer}</li>))}
             </ul>

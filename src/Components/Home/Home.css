@@ -1,0 +1,25 @@
+.home-top{
+    display: flex;
+    font-size: 55px;
+    text-align: center;
+
+}
+
+.home-about{
+    text-align: center;
+    margin:auto;
+    color: var(--text-color);
+}
+
+.home-about-container{
+        display: flex;
+        margin-top:5vh;
+}
+
+
+.get-started{
+    font-size: 16pt;
+    color: var(--text-accent);
+    text-decoration: none;
+
+}
