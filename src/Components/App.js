@@ -5,6 +5,7 @@ import React, {useEffect,useState} from "react";
 import { motion } from 'framer-motion';
 import { v4 as uuidv4 } from 'uuid';
 
+const DECK_SIZE = 3; 
 const DeckContext = React.createContext();
 const  CounterContext= React.createContext();
 
@@ -16,12 +17,13 @@ function App() {
 
     const myDeck = {};
 
-    for(let card of deckData){
+    let cardNumber = 1;
 
-      let cardId = uuidv4();
+    for(let card of deckData){
       card['drawing'] = false;
-      card['id'] = cardId;   
-      myDeck[cardId] = card;
+      card['number'] = cardNumber;
+      myDeck[cardNumber] = card;
+      cardNumber++;
     }
     return myDeck;
   }
@@ -30,7 +32,7 @@ function App() {
 
     async function getWords(){
 
-      let words = await RandomWordsAPI.getWords(3);
+      let words = await RandomWordsAPI.getWords(DECK_SIZE);
       words = initializeDeck(words);
       setDeck(words);
     }
@@ -69,5 +71,5 @@ function App() {
   );
 }
 
-export {DeckContext,CounterContext};
+export {DeckContext,CounterContext,DECK_SIZE};
 export default App;
