@@ -40,7 +40,7 @@ const CardCanvas = () => {
   }
 
   const saveDrawing = () => {
-    updateDrawing(card.id, canvasRef.current);
+    updateDrawing(card.number, canvasRef.current);
   }
 
   $(document).on('change', 'input[type=color]', function() {
