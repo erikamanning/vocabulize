@@ -1,18 +1,24 @@
 import Paper from "paper";
 
-const paint = (color="black") => {
-  let myPath = new Paper.Path();
+const paint = (color="black", strokeWidth = 3) => {
+
+  let path;
 
   Paper.view.onMouseDown = (event) => {
-    myPath.strokeColor = color;
-    myPath.strokeWidth = 3;
+    path = new Paper.Path();
+    path.strokeColor = color;
+    path.strokeWidth = strokeWidth;
+
   };
 
   Paper.view.onMouseDrag = (event) => {
-    myPath.add(event.point);
+    path.add(event.point);
   };
 
-  Paper.view.draw();
+  // Paper.view.draw();
+
 };
 
 export default paint;
+
+
