@@ -1,0 +1,35 @@
+.Loading{
+    display: flex;
+    justify-content: center;
+    color: #1894ef;
+}
+
+
+.Loading-container {
+    position: relative;
+    text-align: center;
+    color: #1894ef;
+  }
+  
+.Loading-text-centered {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #1894ef;
+}
+
+
+.Loading-container-mobile {
+    position: relative;
+    text-align: center;
+    color: #1894ef;
+}
+
+.Loading-text-centered-mobile {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #1894ef;
+}
