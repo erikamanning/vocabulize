@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import {DECK_SIZE} from '../App'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowAltCircleRight, faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons'
+import Loading from "../Loading";
 
 const Deck = () => {
     const firstCardNum = 1;
@@ -49,7 +50,7 @@ const Deck = () => {
                             <button className='Deck-button' onClick={nextCard} >{arrowRightIcon}</button>
                         </div>
                     </div>
-                :   null
+                : <Loading />
             }
         </div>
     )

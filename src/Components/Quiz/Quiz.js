@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowAltCircleRight, faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons'
 import {initializeQuizCard, shuffleAnswerIds,getAnswers, getAnswerIds} from './QuizHelpers'
 import { shuffleArr } from "../../helpers";
+import Loading from "../Loading";
 
 const QuizContext = React.createContext();
 
@@ -35,8 +36,9 @@ const Quiz = () => {
 
             const quizData = {};
             let i=1;
+
             for(let cardId of shuffledCardIds){
-                let answerIds = getAnswerIds(cardId,deck);
+                let answerIds = getAnswerIds(cardId,deck,2 );
                 let answers = getAnswers(answerIds,deck);
                 let answerOrder = shuffleAnswerIds(answerIds);
                 let initialQuizCardState = initializeQuizCard(cardId,answers,answerOrder,deck);
@@ -157,8 +159,9 @@ const Quiz = () => {
 
                 </motion.div>
 
-                :null
+                : <Loading page='quiz'/>
                 }
+
         </div>
 
     )
