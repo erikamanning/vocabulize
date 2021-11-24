@@ -18,6 +18,7 @@ const Quiz = () => {
 
     const {deck} = useContext(DeckContext);
     const [quiz,setQuiz] = useState(false);
+    const [score, setScore] = useState(0);
     const [mode,setMode] = useState('easy');
     const firstCardNum=1;
     const [currentCard,setCurrentCard] = useState(firstCardNum);
@@ -53,6 +54,15 @@ const Quiz = () => {
             setMode('easy');
     }
 
+    const increaseScore = () => {
+        if(score<DECK_SIZE)
+            setScore(s=>s+1);
+    }
+    const decreaseScore = () => {
+        if(score>0)
+            setScore(s=>s-1); 
+    }
+
     const nextCard = () => {
         if(currentCard<DECK_SIZE)
             setCurrentCard(cc=>cc+1);
@@ -82,7 +92,8 @@ const Quiz = () => {
                         <input onChange={handleSwitch} type="checkbox" />
                         <span className="slider round"></span>
                     </label>
-                    <QuizContext.Provider value={{quiz,mode}}>
+                    <h5><b>Score: {`${score} / ${DECK_SIZE}`}</b></h5>
+                    <QuizContext.Provider value={{quiz,mode, increaseScore, decreaseScore}}>
 
                         {
                             quiz 

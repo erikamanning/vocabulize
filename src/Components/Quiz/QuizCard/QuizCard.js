@@ -13,7 +13,7 @@ const QuizCardContext = React.createContext();
 const QuizCard = ({questionId}) => {
 
     const {deck} = useContext(DeckContext);
-    const {mode} = useContext(QuizContext);
+    const {mode, increaseScore, decreaseScore} = useContext(QuizContext);
     const [quizCard,setQuizCard] = useState(false);
     const [selectedAnswer,setSelectedAnswer] = useState(null);
     const [questionOpen, setQuestionOpen] = useState(true);
@@ -70,10 +70,14 @@ const QuizCard = ({questionId}) => {
 
     const pickAnswer = (answerId) => {
         console.log(`Picked answer! ${answerId} `);
-        if(answerId == quizCard.correctAnswer)
+        if(answerId == quizCard.correctAnswer){
             console.log('CORRECT!!!');
-        else
+            increaseScore();
+        }
+        else{
             console.log('WRONG!!!!!');
+            decreaseScore();
+        }
 
         setQuestionOpen(false);
         setSelectedAnswer(answerId);
