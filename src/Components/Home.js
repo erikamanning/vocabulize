@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import './Deck/Card/Card.css';
 import HomeExplanation from './Home/HomeExplanation';
 import HomeAbout from "./Home/HomeAbout";
+import DevInfo from './Home/DevInfo'
 
 const Home = () => {
     return(
@@ -24,6 +25,7 @@ const Home = () => {
             </div>
             <HomeExplanation />
             <HomeAbout />
+            <DevInfo />
         </div>
     )
 }
