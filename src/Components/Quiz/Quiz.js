@@ -20,7 +20,7 @@ const Quiz = () => {
     const [quiz,setQuiz] = useState(false);
     const [quizScore, setQuizScore] = useState(0);
     const [mode,setMode] = useState('easy');
-    const firstCardNum=1;
+    const firstCardNum=0;
     const [currentCard,setCurrentCard] = useState(firstCardNum);
     const arrowLeftIcon = <FontAwesomeIcon icon={faArrowAltCircleLeft} />;
     const arrowRightIcon = <FontAwesomeIcon icon={faArrowAltCircleRight} />;
@@ -31,6 +31,8 @@ const Quiz = () => {
         if(!quiz && deck){
             console.log('deck: ', deck);
             const shuffledCardIds = shuffleDeck(deck);
+            console.log('shuffledCardIds: ', shuffledCardIds);
+
             const quizData = {};
             let i=1;
             for(let cardId of shuffledCardIds){
@@ -42,6 +44,7 @@ const Quiz = () => {
                 quizData[cardId] = initialQuizCardState;
                 // i++;
             }
+            quizData.questionOrder = shuffledCardIds;
             console.log('Quiz Data: ', quizData);
             setQuiz(quizData);
         }
@@ -72,14 +75,14 @@ const Quiz = () => {
     }
 
     const nextCard = () => {
-        if(currentCard<DECK_SIZE)
+        if(currentCard<DECK_SIZE-1)
             setCurrentCard(cc=>cc+1);
         else
             alert('You are already on the LAST question!')
     }
 
     const previousCard = () => {
-        if(currentCard>1)
+        if(currentCard>0)
             setCurrentCard(cc=>cc-1); 
         else
             alert('You are already on the FIRST question!')
@@ -139,10 +142,10 @@ const Quiz = () => {
 
                         {
                             quiz 
-                            ? <QuizCard key={uuidv4()} cardData={quiz[currentCard]} />
+                            ? <QuizCard key={uuidv4()} cardData={quiz[quiz.questionOrder[currentCard]]} />
                             : <p>Loading Quiz...</p>
                         }
-                        <h2 className='Quiz-center Quiz-red'>{currentCard} of {DECK_SIZE}</h2>
+                        <h2 className='Quiz-center Quiz-red'>{currentCard+1} of {DECK_SIZE}</h2>
 
                         <div className='Quiz-center'>                 
                             <button className='Quiz-button' onClick={previousCard} >{arrowLeftIcon}</button>

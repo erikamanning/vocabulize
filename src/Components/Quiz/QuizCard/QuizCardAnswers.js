@@ -4,7 +4,7 @@ import '../../Deck/Card/Card.css'
 import './QuizCardAnswers.css'
 import Answer from './Answer'
 
-const QuizCardAnswers = ({answers}) => {
+const QuizCardAnswers = ({answers,answerOrder}) => {
 
     const letters = ['A', 'B', 'C'];
 
@@ -13,7 +13,7 @@ const QuizCardAnswers = ({answers}) => {
         <div>
             <h5>Choose one of the following:</h5>
             <div className='QuizCardAnswers'>
-                {Object.keys(answers).map((id,i)=>(<Answer key={uuidv4()} letter={letters[i]} answerId={id} text={answers[id]} />))}
+                {answerOrder.map((id,i)=>(<Answer key={uuidv4()} letter={letters[i]} answerId={id} text={answers[id]} />))}
             </div>
         </div>
     )

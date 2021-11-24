@@ -45,7 +45,7 @@ const QuizCard = ({cardData}) => {
                                 : <p className='QuizCard-no-drawing-message'><i>No drawing shown on Hard Mode.</i></p>
                             }
 
-                            <QuizCardAnswers answers={cardData.answers}/>
+                            <QuizCardAnswers answers={cardData.answers} answerOrder={cardData.answerOrder}/>
                         </div>
                     </div>
                 </QuizCardContext.Provider>
