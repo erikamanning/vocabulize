@@ -4,6 +4,12 @@ import QuizCard from "./QuizCard/QuizCard";
 import { v4 as uuidv4 } from 'uuid';
 import { motion } from "framer-motion";
 import './Quiz.css'
+import {DECK_SIZE} from '../App'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowAltCircleRight, faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons'
+import {initializeQuizCard, shuffleAnswerIds,getAnswers, getAnswerIds} from './QuizHelpers'
+import { shuffleArr } from "../../helpers";
+import Loading from "../Loading";
 
 const QuizContext = React.createContext();
 
@@ -13,99 +19,45 @@ const Quiz = () => {
 
     const {deck} = useContext(DeckContext);
     const [quiz,setQuiz] = useState(false);
+    const [quizScore, setQuizScore] = useState(0);
     const [mode,setMode] = useState('easy');
+    const firstCardNum=0;
+    const [currentCard,setCurrentCard] = useState(firstCardNum);
+    const arrowLeftIcon = <FontAwesomeIcon icon={faArrowAltCircleLeft} />;
+    const arrowRightIcon = <FontAwesomeIcon icon={faArrowAltCircleRight} />;
+
 
     useEffect(()=>{
 
+        if(!quiz && deck){
+            console.log('deck: ', deck);
+            const shuffledCardIds = shuffleDeck(deck);
+            console.log('shuffledCardIds: ', shuffledCardIds);
 
-        if(!quiz){
-            const cardIds = Object.keys(deck);
-            const shuffledCards = shuffleDeck(cardIds);
-            let quizDataIds = getQuizDataIds(shuffledCards);
-            setQuiz(makeQuiz(quizDataIds));
+            const quizData = {};
+            let i=1;
+
+            for(let cardId of shuffledCardIds){
+                let answerIds = getAnswerIds(cardId,deck,2 );
+                let answers = getAnswers(answerIds,deck);
+                let answerOrder = shuffleAnswerIds(answerIds);
+                let initialQuizCardState = initializeQuizCard(cardId,answers,answerOrder,deck);
+
+                quizData[cardId] = initialQuizCardState;
+                // i++;
+            }
+            quizData.questionOrder = shuffledCardIds;
+            console.log('Quiz Data: ', quizData);
+            setQuiz(quizData);
         }
-    },[]);
+    },[deck]);
 
 
-    const getRandIndex = (arr)=>{
 
-        let max = arr.length-1;
-        return Math.floor(Math.random() * (max - 0 + 1));
-    }
+    const shuffleDeck = (cards) => {
 
-    const getRandOtherCard = (arr)=>{
-
-        let randCard = arr[getRandIndex(arr)];
-        // console.log('randCard: ', randCard);
-        return randCard;
-    }
-
-    const shuffleDeck = (cardIds) => {
-
-        // console.log('card ids before shuffle: ', cardIds);
-
-        for (let i = cardIds.length - 1; i > 0; i--) {
-        
-            // Generate random number
-            let j = Math.floor(Math.random() * (i + 1));
-                        
-            [cardIds[i],cardIds[j]] = [cardIds[j], cardIds[i]];
-        }
-            
-        // console.log('card ids after shuffle: ', cardIds);
-
-        return cardIds;
-    }
-
-    const getQuizDataIds = (shuffledCardIds) => {
-
-        let quizDataIds = [];
-        let i=0;
-        for(let cardId of shuffledCardIds){
-            i++;
-            let cardsCopy = [...shuffledCardIds];
-            // console.log(`CARDSCOPY -- untouched - i=${i}`, cardsCopy);
-            cardsCopy.splice(cardsCopy.indexOf(cardId),1);
-            // console.log('CARDSCOPY -- after cardId splice', cardsCopy);
-            let wrongCard1 = [getRandOtherCard(cardsCopy)];
-            cardsCopy.splice(cardsCopy.indexOf(wrongCard1),1);
-            // console.log('CARDSCOPY -- after wrongCard1 splice', cardsCopy);
-            let wrongCard2 = [getRandOtherCard(cardsCopy)];
-            
-            quizDataIds.push({
-                card:cardId,
-                wrongCard1,
-                wrongCard2
-            })
-        }
-
-        console.log('quizDataIds: ', quizDataIds);
-
-        return quizDataIds;
-    }
-
-    const makeQuiz = (quizDataIds) => {
-
-        let quizQuestions = [];
-
-
-        for(let qdId of quizDataIds){
-
-            console.log('**** DRAWING: ', deck[qdId.card]);
-
-            quizQuestions.push({
-
-                word: deck[qdId.card].word,
-                answer:deck[qdId.card].definition,
-                drawing:deck[qdId.card].drawing,
-                wrongAnswer1:deck[qdId.wrongCard1].definition,
-                wrongAnswer2: deck[qdId.wrongCard2].definition
-            });
-
-        }
-
-        console.log('Quiz Questions: ', quizQuestions);
-        return quizQuestions;
+        const cardIds = Object.keys(cards);
+        return shuffleArr(cardIds);
     }
 
     const handleSwitch = ()=>{
@@ -115,33 +67,103 @@ const Quiz = () => {
             setMode('easy');
     }
 
+    const increaseScore = () => {
+        if(quizScore<DECK_SIZE)
+            setQuizScore(s=>s+1);
+    }
+    const decreaseScore = () => {
+        if(quizScore>0)
+            setQuizScore(s=>s-1); 
+    }
+
+    const nextCard = () => {
+        if(currentCard<DECK_SIZE-1)
+            setCurrentCard(cc=>cc+1);
+        else
+            alert('You are already on the LAST question!')
+    }
+
+    const previousCard = () => {
+        if(currentCard>0)
+            setCurrentCard(cc=>cc-1); 
+        else
+            alert('You are already on the FIRST question!')
+    }
+
+    const updateCard = (cardId, userAnswer, score) => {
+
+        let newCardData = {
+            ...quiz[cardId],
+            ['questionOpen']:false,
+            ['selectedAnswer']:userAnswer,
+            ['score']:score,
+        };
+
+        setQuiz((q)=>({
+            ...q,
+            [`${cardId}`]:{...newCardData}
+        }));
+    }
 
 
+    const pickAnswer = (cardId,answerId) => {
+        console.log(`Picked answer! ${answerId} `);
+        console.log(`Card Id: `, cardId);
+        console.log(`quiz[cardId].correctAnswer: `, quiz[cardId].correctAnswer);
 
+
+        if(answerId == quiz[cardId].correctAnswer){
+            console.log('CORRECT!!!');
+            increaseScore();
+            updateCard(cardId, answerId, 1);
+        }
+        else{
+            console.log('WRONG!!!!!');
+            decreaseScore();
+            updateCard(cardId, answerId, 1);
+        }
+    }
 
     return (
-        <motion.div
-        initial={{ opacity: 0, y:20}}
-        animate={{ opacity: 1, y:0 }}
-        transition={{duration:1, delay:.5}}
-        className='Quiz'>
-            <h1 className='Quiz-title'>Quiz</h1>
-            <h3><b>Mode: </b> <span className='Quiz-mode'>{mode.toUpperCase()}</span></h3>
-            <label className="mode-switch">
-                <input onChange={handleSwitch} type="checkbox" />
-                <span className="slider round"></span>
-            </label>
-            <QuizContext.Provider value={{quiz,mode}}>
+        <div>
+            {deck && quiz
+                ?
+                <motion.div
+                initial={{ opacity: 0, y:20}}
+                animate={{ opacity: 1, y:0 }}
+                transition={{duration:1, delay:.5}}
+                className='Quiz'>
+                    <h1 className='Quiz-title'>Quiz</h1>
+                    <h3><b>Mode: </b> <span className='Quiz-mode'>{mode.toUpperCase()}</span></h3>
+                    <label className="mode-switch">
+                        <input onChange={handleSwitch} type="checkbox" />
+                        <span className="slider round"></span>
+                    </label>
+                    <h3 className='Quiz-center Quiz-red'><b>Score: {`${quizScore} / ${DECK_SIZE}`}</b></h3>
+                    <QuizContext.Provider value={{quiz,mode, pickAnswer}}>
 
-                {
-                    quiz 
-                    ? <div>{quiz.map((question)=>(<QuizCard key={uuidv4()} question={question} />))}</div>
-                    : <p>Loading Quiz...</p>
+                        {
+                            quiz 
+                            ? <QuizCard key={uuidv4()} cardData={quiz[quiz.questionOrder[currentCard]]} />
+                            : <p>Loading Quiz...</p>
+                        }
+                        <h2 className='Quiz-center Quiz-red'>{currentCard+1} of {DECK_SIZE}</h2>
+
+                        <div className='Quiz-center'>                 
+                            <button className='Quiz-button' onClick={previousCard} >{arrowLeftIcon}</button>
+                            <button className='Quiz-button' onClick={nextCard} >{arrowRightIcon}</button>
+                        </div>
+
+
+                    </QuizContext.Provider>
+
+                </motion.div>
+
+                : <Loading page='quiz'/>
                 }
 
-            </QuizContext.Provider>
+        </div>
 
-        </motion.div>
     )
 
 }

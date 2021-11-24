@@ -1,7 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import '../Tranisitions/Object-in.css';
-import '../Tranisitions/Object-in';
 import '../Deck/Card/Card.css';
 import './HomeExplanation.css'
 import InView from "react-intersection-observer";
