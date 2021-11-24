@@ -23,13 +23,18 @@ const CardCanvas = () => {
     paint(color);
     if(card.drawing){
 
-        const dataURL = card.drawing.toDataURL();
-        const ctx = canvasRef.current.getContext('2d');
-        var img = new Image;
-        img.src = dataURL;
-        img.onload = () => {
-            ctx.drawImage(img, 0, 0);
-        }
+      // Create a raster item using the image tag with id='mona'
+      const dataURL = card.drawing.toDataURL();
+      var raster = new Paper.Raster(dataURL);
+
+      // Move the raster to the center of the view
+      raster.position = Paper.view.center;
+
+      // // Scale the raster by 50%
+      // raster.scale(0.5);
+
+      // // Rotate the raster by 45 degrees:
+      // raster.rotate(45);
       }
   }, [color]);
   
@@ -52,6 +57,7 @@ const CardCanvas = () => {
             <div className='color-picker-wrapper'>
               <input onChange={handleChange} value={color} type="color" />
             </div>
+
             <canvas className={'CardCanvas'} ref={canvasRef} id="canvas" resize="true" />
             <button  className='save' onClick={saveDrawing}>Save</button>
   </div>
