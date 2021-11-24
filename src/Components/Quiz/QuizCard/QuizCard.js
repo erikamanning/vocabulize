@@ -25,13 +25,13 @@ const QuizCard = ({cardData}) => {
                 <QuizCardContext.Provider value={{cardData}}>
                     <div className='Card'>
                         <div className='card-container'>
-                            {console.log('Question Open? : ', cardData.questionOpen)}
 
-                            {/* {
-                                selectedAnswer 
-                                    ? <p>{`${questionScore}/1`}</p>
-                                    : null
-                            } */}
+                            {
+                                !cardData.questionOpen
+                                ? <p><b>Question Score: </b> {cardData.score}/1</p>
+                                : null
+                            }
+
                             <QuizCardText  word={cardData.word} />
                             {/* <p className='QuizCard-drawing-title'><b>Your Drawing:</b></p> */}
                             {
@@ -45,7 +45,7 @@ const QuizCard = ({cardData}) => {
                                 : <p className='QuizCard-no-drawing-message'><i>No drawing shown on Hard Mode.</i></p>
                             }
 
-                            <QuizCardAnswers answers={cardData.answers} answerOrder={cardData.answerOrder}/>
+                            <QuizCardAnswers answers={cardData.answers} answerOrder={cardData.answerOrder} />
                         </div>
                     </div>
                 </QuizCardContext.Provider>
