@@ -11,6 +11,9 @@
     border-radius: 5%;
     margin: 5%;
     text-align: center;
+    -moz-box-shadow:    3px 3px 5px var(--drop-shadow-color);
+    -webkit-box-shadow: 3px 3px 5px var(--drop-shadow-color);
+    box-shadow:         3px 3px 5px var(--drop-shadow-color);
 }
 
 .dev-img{
@@ -26,10 +29,9 @@
 
 .dev-link-container{
     display: inline-block;
-    margin: auto;
     padding-bottom: 10%;
     width: 60%;
-
+    
 }
 
 .dev-link-container >a{
