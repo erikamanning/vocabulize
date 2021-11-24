@@ -71,10 +71,6 @@ const Quiz = () => {
         if(quizScore<DECK_SIZE)
             setQuizScore(s=>s+1);
     }
-    const decreaseScore = () => {
-        if(quizScore>0)
-            setQuizScore(s=>s-1); 
-    }
 
     const nextCard = () => {
         if(currentCard<DECK_SIZE-1)
@@ -119,8 +115,7 @@ const Quiz = () => {
         }
         else{
             console.log('WRONG!!!!!');
-            decreaseScore();
-            updateCard(cardId, answerId, 1);
+            updateCard(cardId, answerId, 0);
         }
     }
 
