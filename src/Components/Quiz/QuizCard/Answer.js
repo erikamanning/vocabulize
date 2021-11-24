@@ -1,22 +1,15 @@
 import React, {useState, useContext} from "react"
 import { QuizCardContext } from "./QuizCard";
 import './Answer.css'
-
+import { QuizContext } from '../Quiz'
 const Answer = ({letter, answerId, text}) => {
 
     const [highlight,setHighlight] = useState('');
     const [circleColor, setCircleColor] = useState('circle-blue');
-    const {quizCard,pickAnswer, selectedAnswer} = useContext(QuizCardContext);
+    const {pickAnswer} = useContext(QuizContext);
+    const {cardData} = useContext(QuizCardContext);
     let selectionHighlight = '';
 
-    if(selectedAnswer){
-        if(selectedAnswer == answerId){
-            if(selectedAnswer == quizCard.correctAnswer)
-                selectionHighlight = 'highlight-green';
-            else
-                selectionHighlight = 'highlight-red';
-        }
-    }
 
     const handleMouseEnter = () => {
         setHighlight('Answer-highlight');
@@ -29,7 +22,7 @@ const Answer = ({letter, answerId, text}) => {
     }
 
     const selectAnswer = () => {
-        pickAnswer(answerId);
+        pickAnswer(cardData.id,answerId);
     }
 
     return (

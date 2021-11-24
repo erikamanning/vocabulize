@@ -7,8 +7,8 @@ import './Quiz.css'
 import {DECK_SIZE} from '../App'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowAltCircleRight, faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons'
-import { getRandIndex, shuffleArr } from "../../helpers";
-
+import {initializeQuizCard, shuffleAnswerIds,getAnswers, getAnswerIds} from './QuizHelpers'
+import { shuffleArr } from "../../helpers";
 
 const QuizContext = React.createContext();
 
@@ -18,7 +18,7 @@ const Quiz = () => {
 
     const {deck} = useContext(DeckContext);
     const [quiz,setQuiz] = useState(false);
-    const [score, setScore] = useState(0);
+    const [quizScore, setQuizScore] = useState(0);
     const [mode,setMode] = useState('easy');
     const firstCardNum=1;
     const [currentCard,setCurrentCard] = useState(firstCardNum);
@@ -28,18 +28,26 @@ const Quiz = () => {
 
     useEffect(()=>{
 
-        if(!quiz){
+        if(!quiz && deck){
+            console.log('deck: ', deck);
             const shuffledCardIds = shuffleDeck(deck);
-            setQuiz(shuffledCardIds);
+            const quizData = {};
+            let i=1;
+            for(let cardId of shuffledCardIds){
+                let answerIds = getAnswerIds(cardId,deck);
+                let answers = getAnswers(answerIds,deck);
+                let answerOrder = shuffleAnswerIds(answerIds);
+                let initialQuizCardState = initializeQuizCard(cardId,answers,answerOrder,deck);
+
+                quizData[cardId] = initialQuizCardState;
+                // i++;
+            }
+            console.log('Quiz Data: ', quizData);
+            setQuiz(quizData);
         }
-    },[]);
+    },[deck]);
 
-    /*
 
-        updateQuizScore functions
-        increaseScore & decrease score
-
-    */
 
     const shuffleDeck = (cards) => {
 
@@ -55,12 +63,12 @@ const Quiz = () => {
     }
 
     const increaseScore = () => {
-        if(score<DECK_SIZE)
-            setScore(s=>s+1);
+        if(quizScore<DECK_SIZE)
+            setQuizScore(s=>s+1);
     }
     const decreaseScore = () => {
-        if(score>0)
-            setScore(s=>s-1); 
+        if(quizScore>0)
+            setQuizScore(s=>s-1); 
     }
 
     const nextCard = () => {
@@ -75,6 +83,40 @@ const Quiz = () => {
             setCurrentCard(cc=>cc-1); 
         else
             alert('You are already on the FIRST question!')
+    }
+
+    const updateCard = (cardId, userAnswer, score) => {
+
+        let newCardData = {
+            ...quiz[cardId],
+            ['questionOpen']:false,
+            ['selectedAnswer']:userAnswer,
+            ['score']:score,
+        };
+
+        setQuiz((q)=>({
+            ...q,
+            [`${cardId}`]:{...newCardData}
+        }));
+    }
+
+
+    const pickAnswer = (cardId,answerId) => {
+        console.log(`Picked answer! ${answerId} `);
+        console.log(`Card Id: `, cardId);
+        console.log(`quiz[cardId].correctAnswer: `, quiz[cardId].correctAnswer);
+
+
+        if(answerId == quiz[cardId].correctAnswer){
+            console.log('CORRECT!!!');
+            increaseScore();
+            updateCard(cardId, answerId, 1);
+        }
+        else{
+            console.log('WRONG!!!!!');
+            decreaseScore();
+            updateCard(cardId, answerId, 1);
+        }
     }
 
     return (
@@ -92,12 +134,12 @@ const Quiz = () => {
                         <input onChange={handleSwitch} type="checkbox" />
                         <span className="slider round"></span>
                     </label>
-                    <h5><b>Score: {`${score} / ${DECK_SIZE}`}</b></h5>
-                    <QuizContext.Provider value={{quiz,mode, increaseScore, decreaseScore}}>
+                    <h3 className='Quiz-center Quiz-red'><b>Score: {`${quizScore} / ${DECK_SIZE}`}</b></h3>
+                    <QuizContext.Provider value={{quiz,mode, pickAnswer}}>
 
                         {
                             quiz 
-                            ? <QuizCard key={uuidv4()} questionId={currentCard} />
+                            ? <QuizCard key={uuidv4()} cardData={quiz[currentCard]} />
                             : <p>Loading Quiz...</p>
                         }
                         <h2 className='Quiz-center Quiz-red'>{currentCard} of {DECK_SIZE}</h2>
