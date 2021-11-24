@@ -1,4 +1,4 @@
-import { shuffleArr } from "../../helpers";
+import { shuffleArr, getRandItems } from "../../helpers";
 
 const initializeQuizCard = (questionId,answers,answerOrder,deck) => {
     return {
@@ -28,18 +28,22 @@ const getAnswers = (answerIds,deck) => {
     return answers;
 }
 
-const getAnswerIds = (questionId,deck) => {
-    let wrongAnswerIds = getWrongAnswerIds(questionId,deck);
+const getAnswerIds = (questionId,deck, numWrongAnswers) => {
+    let wrongAnswerIds = getWrongAnswerIds(questionId,deck,numWrongAnswers);
     let answerIds = [questionId, ...wrongAnswerIds]
     answerIds = shuffleArr(answerIds);
     return answerIds;
 }
 
-const getWrongAnswerIds = (questionId, deck) => {
+const getWrongAnswerIds = (questionId, deck, numWrongAnswers) => {
+
     const quizCardIds = [...Object.keys(deck)];
     const index = quizCardIds.indexOf(questionId.toString());
     quizCardIds.splice(index,1);
-    return quizCardIds;
+
+    let randItems = getRandItems(quizCardIds,2)
+
+    return randItems;
 }
 
 export {initializeQuizCard,shuffleAnswerIds,getAnswers, getAnswerIds};
