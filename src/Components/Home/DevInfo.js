@@ -14,10 +14,10 @@ const DevInfo = () => {
                 She is a passionate developer with an interest in using software to improve the 
                 information space and to innovate in the education industry.</p>
                 <div className='dev-link-container'>
-                    <a href='https://github.com/erikamanning' target='_blank'>
+                    <a href='https://github.com/erikamanning' target='_blank' rel='noreferrer'>
                         <FontAwesomeIcon className='icon' icon={faGithubSquare}/>
                     </a>
-                    <a href='https://www.linkedin.com/in/erikamanning/' target='_blank'>
+                    <a href='https://www.linkedin.com/in/erikamanning/' target='_blank' rel='noreferrer'>
                         <FontAwesomeIcon className='icon' icon={faLinkedin}/>
                     </a>
                 </div>
@@ -25,12 +25,13 @@ const DevInfo = () => {
 
             <div className='dev-card'>
                 <img className='dev-img' src={danphoto}/>
-                <p className='dev-blurb'>Dan is a graphic artist and developer from the Philadelphia region.</p>
+                <p className='dev-blurb'>Dan is a graphic artist and developer from the Philadelphia region.
+                He enjoys music, games, and dogs. :) </p>
                 <div className='dev-link-container'>
-                    <a href='https://github.com/danieltlangston' target='_blank'>
+                    <a href='https://github.com/danieltlangston' target='_blank' rel='noreferrer'>
                         <FontAwesomeIcon className='icon' icon={faGithubSquare}/>
                     </a>
-                    <a href='https://www.linkedin.com/in/daniel-langston-556556210/' target='_blank'>
+                    <a href='https://www.linkedin.com/in/daniel-langston-556556210/' target='_blank' rel='noreferrer'>
                         <FontAwesomeIcon className='icon' icon={faLinkedin}/>
                     </a>
                 </div>

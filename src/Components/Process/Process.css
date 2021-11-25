@@ -6,10 +6,9 @@ h1{
     color:var(--text-color)
 }
 .process-container{
-
     width: 80%;
-    margin: 5vh auto 0 auto;
-    text-align: center;
+    margin: 5vh auto 20vh auto;
+    text-align: left;
     font-size: 20px;
 }
 
@@ -21,9 +20,9 @@ h1{
 }
 .process-row > p{
     width: 30%;
-
     padding: 5%;
 }
+
 @media only screen and (max-width: 981px){
     .process-row{
        display: block;

@@ -24,7 +24,7 @@ const HomeExplanation = () => {
                     <motion.div className='Card'>               
                         <div className='card-container'>
                             <h1 className='card-word home-card'>Flip the Card</h1>
-                            <p className='definition home-card'>Make a drawing using the canvas on the back size of the cardto help you remember.</p>
+                            <p className='definition home-card'>Make a drawing using the canvas on the back size of the card to help you remember.</p>
                         </div>
                     </motion.div>
                     <div className='Card'>               
