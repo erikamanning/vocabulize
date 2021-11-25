@@ -5,6 +5,7 @@ import { TransitionGroup, CSSTransition, Transition } from 'react-transition-gro
 import Deck from './Deck/Deck';
 import Quiz from './Quiz/Quiz';
 import App from './App';
+import ProcessComponent from './Process/ProcessComponent';
 
 
 
@@ -18,6 +19,7 @@ const RouterComponent = () => {
                         <Route path="/" element={<App />} >
                         <Route path="/deck" element={<Deck />}/>
                         <Route path="/quiz" element={<Quiz />}/>
+                        <Route path="/process" element={<ProcessComponent />}/>
                       </Route>      
                     </Routes>  
                 </CSSTransition>

@@ -10,6 +10,8 @@ const HomeExplanation = () => {
                 <motion.div
                 ref={ref}
                 initial={{opacity:0, y:10}}
+                whileInView="visible"
+                viewport={{ once: true }}
                 animate={ inView ? {opacity:1} : {opacity:0}}
                 transition={{duration:.8}}
                 className='home-explanatation-container'>

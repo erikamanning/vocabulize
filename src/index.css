@@ -35,6 +35,7 @@ body{
 }
 p{
   font-size: 2rem;
+  color: var(--text-color);
 }
 header{
   color:var(--text-color);
