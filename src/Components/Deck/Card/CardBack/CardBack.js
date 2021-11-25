@@ -2,12 +2,15 @@ import React, {useState, useContext} from "react"
 import { CardContext } from "../Card";
 import './CardBack.css'
 import CardCanvas from "./CardCanvas";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEdit } from '@fortawesome/free-solid-svg-icons'
 
 const CardBack = () => {
 
     const drawing = true;
     const [showCanvas, setShowCanvas] = useState(false);
     const card = useContext(CardContext);
+    const editIcon = <FontAwesomeIcon icon={faEdit} />;
 
     const accessCanvas = () => {
         setShowCanvas(sc=>!sc);
@@ -45,7 +48,7 @@ const CardBack = () => {
                             ? 'Update'
                             : 'AddDrawing'
                         }
-                    </button>
+                    &nbsp; {editIcon} </button>
                 </div>
                 :null
             }

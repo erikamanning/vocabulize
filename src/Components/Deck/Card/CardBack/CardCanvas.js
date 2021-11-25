@@ -5,11 +5,14 @@ import './CardCanvas.css';
 import $ from 'jquery';
 import { CardContext } from '../Card';
 import { DeckContext } from '../../../App';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSave, faTrash } from '@fortawesome/free-solid-svg-icons'
 
 const CardCanvas = () => {
   
   const canvasRef = useRef(null);
+  const saveIcon = <FontAwesomeIcon icon={faSave} />;
+  const trashIcon = <FontAwesomeIcon icon={faTrash} />;
 
   const card = useContext(CardContext);
   const {updateDrawing} = useContext(DeckContext);
@@ -47,8 +50,8 @@ const CardCanvas = () => {
 
             <canvas className={'CardCanvas'} ref={canvasRef} id="canvas" resize="true" />
             <div className='edit-card-buttons'>
-              <button onClick={saveDrawing}>Save</button>
-              <button onClick={()=>(Paper.project.clear())}>Clear Drawing</button>
+              <button onClick={saveDrawing}>Save {saveIcon}</button>
+              <button onClick={()=>(Paper.project.clear())}>Clear {trashIcon}</button>
             </div>
   </div>
 }
