@@ -32,6 +32,11 @@ body{
   animation-fill-mode: forwards;
   margin: 0 0 0 0;
   overflow-x: hidden;
+  background-image: url(./Assets/decorative-background.png);
+  background-repeat: no-repeat;
+  background-position-x: 70%;
+  background-position-y: 20vh;
+  background-attachment: fixed;
 }
 p{
   font-size: 2rem;
