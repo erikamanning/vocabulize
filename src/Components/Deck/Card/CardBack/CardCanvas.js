@@ -9,8 +9,6 @@ import { DeckContext } from '../../../App';
 
 const CardCanvas = () => {
   
-  console.log('CARDCANVAS -- render');
-
   const canvasRef = useRef(null);
   const defaultColor = "black";
   const [color, setColor] = useState(defaultColor);

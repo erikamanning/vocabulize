@@ -47,7 +47,6 @@ const Quiz = () => {
                 // i++;
             }
             quizData.questionOrder = shuffledCardIds;
-            console.log('Quiz Data: ', quizData);
             setQuiz(quizData);
         }
     },[deck]);
@@ -105,12 +104,10 @@ const Quiz = () => {
     const pickAnswer = (cardId,answerId) => {
 
         if(answerId == quiz[cardId].correctAnswer){
-            console.log('CORRECT!!!');
             increaseScore();
             updateCard(cardId, answerId, 1);
         }
         else{
-            console.log('WRONG!!!!!');
             updateCard(cardId, answerId, 0);
         }
     }
