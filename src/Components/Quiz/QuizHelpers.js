@@ -1,10 +1,11 @@
 import { shuffleArr, getRandItems } from "../../helpers";
 
-const initializeQuizCard = (questionId,answers,answerOrder,deck) => {
+const initializeQuizCard = (questionId,answers,answerOrder,deck, drawing) => {
     return {
         id:questionId,
         word: deck[questionId].word,
         correctAnswer: questionId,
+        drawing,
         answers,
         answerOrder,
         questionOpen:true,

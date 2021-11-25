@@ -3,13 +3,11 @@ import './QuizCardDrawing.css'
 
 const QuizCardDrawing = ({drawing}) => {
 
-    let dataURL = drawing.toDataURL();
-
     return (
 
-        <div>
-            <h3>QuizCardDrawing</h3>
-            <img src="dataURL" alt="word-drawing" />
+        <div className='QuizCardDrawing'>
+            <p>Your Drawing: </p>
+            <img className='QuizCardDrawing-image' src={drawing} alt="word-drawing" />
         </div>
     )
 

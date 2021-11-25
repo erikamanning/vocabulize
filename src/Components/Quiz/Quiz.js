@@ -36,7 +36,12 @@ const Quiz = () => {
                 let answerIds = getAnswerIds(cardId,deck,2 );
                 let answers = getAnswers(answerIds,deck);
                 let answerOrder = shuffleAnswerIds(answerIds);
-                let initialQuizCardState = initializeQuizCard(cardId,answers,answerOrder,deck);
+                let drawing = deck[cardId].drawing;
+
+                if(drawing)
+                    drawing = drawing.toDataURL();
+
+                let initialQuizCardState = initializeQuizCard(cardId,answers,answerOrder,deck,drawing);
 
                 quizData[cardId] = initialQuizCardState;
                 // i++;

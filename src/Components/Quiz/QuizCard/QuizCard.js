@@ -33,7 +33,7 @@ const QuizCard = ({cardData}) => {
                                 mode === 'easy'
                                 ? <div> 
                                     { cardData.drawing
-                                    ? <QuizCardDrawing drawing={cardData}/>
+                                    ? <QuizCardDrawing drawing={cardData.drawing}/>
                                     : <p className='QuizCard-no-drawing-message'><i>No drawing yet!</i></p>
                                 }
                                 </div>
