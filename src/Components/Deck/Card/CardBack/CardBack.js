@@ -34,15 +34,21 @@ const CardBack = () => {
                   </div>
                 : <CardCanvas/>
             }
-            <div className='CardBack-button-container'>   
-                <button className='update' onClick={accessCanvas}>   
-                    {
-                        drawing 
-                        ? 'Update'
-                        : 'AddDrawing'
-                    }
-                </button>
-            </div>
+            {
+                !showCanvas
+                ?
+                <div className='CardBack-button-container'>   
+                    <button className='update' onClick={accessCanvas}>   
+                        {
+                            drawing
+                            ? 'Update'
+                            : 'AddDrawing'
+                        }
+                    </button>
+                </div>
+                :null
+            }
+
         </div>
     )
 
