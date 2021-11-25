@@ -23,7 +23,7 @@ const QuizCard = ({cardData}) => {
 
                             {
                                 !cardData.questionOpen
-                                ? <p><b>Question Score: </b> {cardData.score}/1</p>
+                                ? <p className='QuizCard-center QuizCard-red'><b>{cardData.score}/1</b></p>
                                 : null
                             }
 
