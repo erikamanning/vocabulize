@@ -35,6 +35,11 @@ const Deck = () => {
         }
     }
 
+    const resetDeck = () => {
+        newDeck();
+        setCurrentCard(firstCardNum);
+    }
+
     return (
         <div
            >
@@ -42,7 +47,7 @@ const Deck = () => {
                 ?
                     <div className='Deck'>
                         <div className='Deck-center'>
-                            <button className='Deck-new-deck' onClick={newDeck}>Get a New Deck</button>
+                            <button className='Deck-new-deck' onClick={resetDeck}>Get a New Deck</button>
                         </div>
                         <Card key={uuidv4()} card={deck[currentCard]}/>
                         <h2 className='Deck-center Deck-red'>{currentCard} of {DECK_SIZE}</h2>
