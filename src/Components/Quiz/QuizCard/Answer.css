@@ -2,7 +2,8 @@
     flex:row;
     display: flex;
     align-items: center;
-    margin-bottom: 5%;
+    justify-content: flex-start;
+    margin-bottom: 3%;
     padding: 1%;
 }
 
