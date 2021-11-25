@@ -20,20 +20,21 @@ const CardBack = () => {
     }
 
     return (
-        <div className='card-container'>
-            <h5 className='card-word'>{card.word}</h5>
-
-            {
-                drawing && !showCanvas
-                ? <div>
-                    {
-                        dataURL 
-                        ? <img className='CardBack-image' src={dataURL} alt="" />
-                        : <p>No Image Yet</p>
-                    }
-                  </div>
-                : <CardCanvas/>
-            }
+        <div className='card-container-deck'>
+            <div>
+                <h5 className='card-word'>{card.word}</h5>
+                {
+                    drawing && !showCanvas
+                    ? <div>
+                        {
+                            dataURL 
+                            ? <img className='CardBack-image' src={dataURL} alt="" />
+                            : <p style={{"color": "black","fontSize": '15pt','fontStyle': 'italic'}}>No Image Yet</p>
+                        }
+                    </div>
+                    : <CardCanvas/>
+                }
+            </div>
             {
                 !showCanvas
                 ?

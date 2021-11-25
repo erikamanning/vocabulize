@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState, useContext } from 'react';
+import React, { useRef, useEffect, useContext } from 'react';
 import Paper from 'paper';
 import paint from './DrawingTools/Paint';
 import './CardCanvas.css';
@@ -10,7 +10,6 @@ import { DeckContext } from '../../../App';
 const CardCanvas = () => {
   
   const canvasRef = useRef(null);
-  const defaultColor = "black";
 
   const card = useContext(CardContext);
   const {updateDrawing} = useContext(DeckContext);
@@ -47,8 +46,10 @@ const CardCanvas = () => {
             <p className='definition'>Draw <b>{card.word}</b> in the area below:</p>
 
             <canvas className={'CardCanvas'} ref={canvasRef} id="canvas" resize="true" />
-            <button  className='save' onClick={saveDrawing}>Save</button>
-            <button onClick={()=>(Paper.project.clear())}>Clear Drawing</button>
+            <div className='edit-card-buttons'>
+              <button onClick={saveDrawing}>Save</button>
+              <button onClick={()=>(Paper.project.clear())}>Clear Drawing</button>
+            </div>
   </div>
 }
 

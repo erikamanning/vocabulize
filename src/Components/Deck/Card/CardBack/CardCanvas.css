@@ -18,3 +18,8 @@ input[type='color']{
     margin-bottom: 10px;
 
 }
+
+.edit-card-buttons {
+    display: flex;
+    justify-content: space-between;
+}

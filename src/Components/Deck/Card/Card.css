@@ -20,19 +20,25 @@
     }
 }
 .card-container{
-    display:inline-block;
+    display: inline-block;
     width: 100%;
     min-height: 15vw;
+}
 
+.card-container-deck{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 15vw;
 }
 .card-word{
     font-size: 24pt;
     color: var(--text-color);
     margin-top: 0;
     margin-bottom: 1em;
-
-
 }
+
 
 .definition{
     font-size: 20pt;
