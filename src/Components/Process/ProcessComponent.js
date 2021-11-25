@@ -40,7 +40,7 @@ const ProcessComponent = () => {
                 <p>We used the <a href="https://github.com/mcnaveen/Random-Words-API">Random-Words-API</a> for this project. 
                    It grabs a random word along with its definition.
                 </p>
-                <img src={randomwordsapi}/>
+                <img src={randomwordsapi} alt='random-words-api'/>
             </div>
 
             <div>
@@ -55,7 +55,7 @@ const ProcessComponent = () => {
                 </p>
             </div>
             <div className='process-row'>
-                <img src={paperjsimg}/>
+                <img src={paperjsimg} alt='paper-js'/>
                 <p> We used <a href="http://paperjs.org/">Paper JS</a> to create a canvas and tools for users to 
                     draw images that would help them remember each vocabulary word.
                 </p>
