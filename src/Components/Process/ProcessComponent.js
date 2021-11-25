@@ -27,8 +27,6 @@ const ProcessComponent = () => {
                 <p>And to make design decisions that will enable a healthy learning environment.</p>
             </div>
 
-            
-
             <div className='process-row'>
                 <img src={landingpage}/>
                 <p>The UI was then refined in Adobe XD.</p>
@@ -36,6 +34,52 @@ const ProcessComponent = () => {
 
             <h1 style={{marginBottom:'25vw', marginTop:'25vw'}}>And then it was time to get coding.</h1>
 
+            <div className='process-row'>
+                <p>We used the <a href="https://github.com/mcnaveen/Random-Words-API">Random-Words-API</a> for this project. 
+                   It grabs a random word along with its definition.
+                </p>
+                <img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fd1dxs113ar9ebd.cloudfront.net%2F225batonrouge%2F2016%2F01%2FiStock_000009439601_Large-copy.jpg&f=1&nofb=1'/>
+            </div>
+
+            <div className='process-row'>
+                <img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fd1dxs113ar9ebd.cloudfront.net%2F225batonrouge%2F2016%2F01%2FiStock_000009439601_Large-copy.jpg&f=1&nofb=1'/>
+                <p> The first step was to create a class to interface with this 
+                    API and grab the data to be used in our application.
+                </p>
+            </div>
+
+            <div className='process-row'>
+                <p> Then it was time to write the application state. 
+                    The main application state was the deck of cards 
+                    created with the data from the Random-Words-API, 
+                    and combined with user drawings that are created 
+                    for the cards.
+                </p>
+                <img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fd1dxs113ar9ebd.cloudfront.net%2F225batonrouge%2F2016%2F01%2FiStock_000009439601_Large-copy.jpg&f=1&nofb=1'/>
+
+            </div>
+            <div className='process-row'>
+                <img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fd1dxs113ar9ebd.cloudfront.net%2F225batonrouge%2F2016%2F01%2FiStock_000009439601_Large-copy.jpg&f=1&nofb=1'/>
+                <p> We used <a href="http://paperjs.org/">Paper JS</a> to create a canvas and tools for users to 
+                    draw images that would help them remember each vocabulary word.
+                </p>
+            </div>
+
+            <div className='process-row'>
+                <p> We have made this app to be a front end app, 
+                    built it was built with the future in mind. 
+                    We plan to add a backend to this application, 
+                    and add more features such as user accounts so 
+                    that users can save decks. We also plan to add more 
+                    tools to the drawing area so users can get even more 
+                    custom with their drawings.
+                </p>
+                <img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fd1dxs113ar9ebd.cloudfront.net%2F225batonrouge%2F2016%2F01%2FiStock_000009439601_Large-copy.jpg&f=1&nofb=1'/>
+            </div>
+
+            
+            
+            
         </motion.div>
     )
 }
