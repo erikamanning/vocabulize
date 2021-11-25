@@ -1,11 +1,19 @@
 import { shuffleArr, getRandItems } from "../../helpers";
 
-const initializeQuizCard = (questionId,answers,answerOrder,deck, drawing) => {
+const initializeQuizCard = (questionId,answers,answerOrder,deck) => {
+
+    let cardDrawing;
+
+    if(deck[questionId].drawing)
+        cardDrawing = deck[questionId].drawing.toDataURL()
+    else
+        cardDrawing=deck[questionId].drawing;
+
     return {
         id:questionId,
         word: deck[questionId].word,
         correctAnswer: questionId,
-        drawing,
+        drawing:cardDrawing,
         answers,
         answerOrder,
         questionOpen:true,

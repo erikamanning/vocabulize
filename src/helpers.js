@@ -18,7 +18,6 @@ const shuffleArr = (items) => {
 
 const getRandItems = (arr, numItems) => {
 
-    let arrCopy = [...arr];
     let randItems = [];
 
     for(let i=0; i<numItems; i++){

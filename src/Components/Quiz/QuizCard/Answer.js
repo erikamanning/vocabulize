@@ -30,11 +30,11 @@ const Answer = ({letter, answerId, text}) => {
         let highlightClass = 'green';
         let textClass = 'green';  
 
-        if(answerId == cardData.correctAnswer){
+        if(answerId === cardData.correctAnswer){
             highlightClass='highlight-green';
             textClass = 'green-text';
         }
-        else if(answerId== cardData.selectedAnswer){
+        else if(answerId=== cardData.selectedAnswer){
                 highlightClass='highlight-red'
                 textClass = 'red-text';
         }
