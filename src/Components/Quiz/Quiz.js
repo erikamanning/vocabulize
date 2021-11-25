@@ -144,16 +144,13 @@ const Quiz = () => {
                                 : <p>Loading Quiz...</p>
                             }
                             <h2 className='Quiz-center Quiz-red'>{currentCard+1} of {DECK_SIZE}</h2>
-
-                            <div className='Quiz-center'>                 
-                                <button className='Quiz-button' onClick={previousCard} >{arrowLeftIcon}</button>
-                                <button className='Quiz-button' onClick={nextCard} >{arrowRightIcon}</button>
-                            </div>
-
-
                         </QuizContext.Provider>
                     </motion.div>
-
+                
+                    <div className='Quiz-center'>                 
+                        <button className='Quiz-button' onClick={previousCard} >{arrowLeftIcon}</button>
+                        <button className='Quiz-button' onClick={nextCard} >{arrowRightIcon}</button>
+                    </div>
                 </div>
 
                 : <Loading page='quiz'/>
