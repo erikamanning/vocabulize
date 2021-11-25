@@ -33,7 +33,7 @@ const CardCanvas = () => {
       raster.position = Paper.view.center;
 
       }
-  }, [color]);
+  }, [color,card.drawing]);
   
   const handleChange = (evt) => {
 
