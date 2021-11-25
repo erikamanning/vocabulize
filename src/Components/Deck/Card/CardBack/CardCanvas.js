@@ -48,6 +48,7 @@ const CardCanvas = () => {
 
             <canvas className={'CardCanvas'} ref={canvasRef} id="canvas" resize="true" />
             <button  className='save' onClick={saveDrawing}>Save</button>
+            <button onClick={()=>(Paper.project.clear())}>Clear Drawing</button>
   </div>
 }
 
