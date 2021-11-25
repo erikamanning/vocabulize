@@ -21,16 +21,16 @@ Quiz levels can be easy or hard. Hard mode gives the user the word and has them 
 ## Examples
 
 ### Card List
-![Card List](/readme_images/card_list_front.png)
+![Landing Page](/readme_images/Landing_Page.png)
+
+### Deck
+![Card List](/readme_images/Card.png)
 
 ### Add Your Drawing
-![Add Drawing](/readme_images/add_drawing.png)
-
-### Card List With Card Flipped
-![Card List Flipped](/readme_images/card_list_flip.png)
+![Add Drawing](/readme_images/CardCanvas.png)
 
 ### Quiz
-![Quiz](/readme_images/quiz.png)
+![Quiz](/readme_images/Quiz.png)
 
 ---
 

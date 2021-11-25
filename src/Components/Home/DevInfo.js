@@ -9,7 +9,7 @@ const DevInfo = () => {
     return(
         <div className='dev-info-container'>
             <div className='dev-card'>
-                <img className='dev-img' src={erikaphoto}/>
+                <img className='dev-img' src={erikaphoto} alt='team-member-1'/>
                 <p className='dev-blurb'> Erika is a full-stack Software Engineer from Utah. 
                 She is a passionate developer with an interest in using software to improve the 
                 information space and to innovate in the education industry.</p>

@@ -30,27 +30,19 @@ const Quiz = () => {
         if(!quiz && deck){
             const shuffledCardIds = shuffleDeck(deck);
             const quizData = {};
-            let i=1;
 
             for(let cardId of shuffledCardIds){
                 let answerIds = getAnswerIds(cardId,deck,2 );
                 let answers = getAnswers(answerIds,deck);
                 let answerOrder = shuffleAnswerIds(answerIds);
-                let drawing = deck[cardId].drawing;
-
-                if(drawing)
-                    drawing = drawing.toDataURL();
-
-                let initialQuizCardState = initializeQuizCard(cardId,answers,answerOrder,deck,drawing);
+                let initialQuizCardState = initializeQuizCard(cardId,answers,answerOrder,deck);
 
                 quizData[cardId] = initialQuizCardState;
-                // i++;
             }
             quizData.questionOrder = shuffledCardIds;
-            console.log('Quiz Data: ', quizData);
             setQuiz(quizData);
         }
-    },[deck]);
+    },[deck,quiz]);
 
 
 
@@ -90,9 +82,9 @@ const Quiz = () => {
 
         let newCardData = {
             ...quiz[cardId],
-            ['questionOpen']:false,
-            ['selectedAnswer']:userAnswer,
-            ['score']:score,
+            questionOpen:false,
+            selectedAnswer:userAnswer,
+            score:score,
         };
 
         setQuiz((q)=>({
@@ -104,13 +96,11 @@ const Quiz = () => {
 
     const pickAnswer = (cardId,answerId) => {
 
-        if(answerId == quiz[cardId].correctAnswer){
-            console.log('CORRECT!!!');
+        if(answerId === quiz[cardId].correctAnswer){
             increaseScore();
             updateCard(cardId, answerId, 1);
         }
         else{
-            console.log('WRONG!!!!!');
             updateCard(cardId, answerId, 0);
         }
     }

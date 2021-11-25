@@ -1,6 +1,6 @@
 import React, {useState} from "react"
 import { useContext } from "react/cjs/react.development";
-import Card, { CardContext } from "../Card";
+import { CardContext } from "../Card";
 import './CardBack.css'
 import CardCanvas from "./CardCanvas";
 

@@ -17,20 +17,20 @@ const ProcessComponent = () => {
             className='process-container'>
             <h1>Design</h1>
             <div className='process-row'>
-                <img src={sketch}/>
+                <img src={sketch} alt='sketch'/>
                 <p>We began this project by sketching out the UI and making a list of the various components needed to create this in react.</p>
             </div>
             <div className='process-row'>
                 <p>The first task was to create brand guidelines to abide by, including typeface, and colors that will match our objective.</p>
-                <img src={brandingsheet}/>
+                <img src={brandingsheet} alt='brand-guidelines'/>
             </div>
             <div className='process-row'>
-                <img src={brandingsheet3}/>
+                <img src={brandingsheet3} alt='design-decisions'/>
                 <p>And to make design decisions that will enable a healthy learning environment.</p>
             </div>
 
             <div className='process-row'>
-                <img src={landingpage}/>
+                <img src={landingpage} alt='adobe-xd'/>
                 <p>The UI was then refined in Adobe XD.</p>
             </div>
 

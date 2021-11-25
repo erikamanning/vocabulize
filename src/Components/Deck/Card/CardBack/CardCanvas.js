@@ -9,8 +9,6 @@ import { DeckContext } from '../../../App';
 
 const CardCanvas = () => {
   
-  console.log('CARDCANVAS -- render');
-
   const canvasRef = useRef(null);
   const defaultColor = "black";
   const [color, setColor] = useState(defaultColor);
@@ -35,7 +33,7 @@ const CardCanvas = () => {
       raster.position = Paper.view.center;
 
       }
-  }, [color]);
+  }, [color,card.drawing]);
   
   const handleChange = (evt) => {
 
