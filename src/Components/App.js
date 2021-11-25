@@ -54,9 +54,13 @@ function App() {
       }));
   }
 
+  const newDeck = () => {
+    setDeck(false);
+  }
+
   return (
           <div className="App">
-            <DeckContext.Provider value={{deck, updateDrawing}}>
+            <DeckContext.Provider value={{deck, updateDrawing, newDeck}}>
               <motion.div
                 transition={{duration:1, delay:.5}}
                 inital={ {opacity:0}}

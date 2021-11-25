@@ -10,7 +10,7 @@ import Loading from "../Loading";
 
 const Deck = () => {
     const firstCardNum = 1;
-    const {deck} = useContext(DeckContext);
+    const {deck, newDeck} = useContext(DeckContext);
     const [currentCard,setCurrentCard] = useState(firstCardNum);
 
     const arrowLeftIcon = <FontAwesomeIcon icon={faArrowAltCircleLeft} />;
@@ -41,6 +41,9 @@ const Deck = () => {
             {deck
                 ?
                     <div className='Deck'>
+                        <div className='Deck-center'>
+                            <button className='Deck-new-deck' onClick={newDeck}>Get a New Deck</button>
+                        </div>
                         <Card key={uuidv4()} card={deck[currentCard]}/>
                         <h2 className='Deck-center Deck-red'>{currentCard} of {DECK_SIZE}</h2>
                         <div className='Deck-center'>                            

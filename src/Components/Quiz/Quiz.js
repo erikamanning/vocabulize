@@ -105,6 +105,11 @@ const Quiz = () => {
         }
     }
 
+    const newQuiz = () => {
+        setQuiz(false);
+        setCurrentCard(firstCardNum);
+      }
+
     return (
         <div>
             {deck && quiz
@@ -112,6 +117,9 @@ const Quiz = () => {
                 <div className='Quiz'>
                     <div className='quiz-head-container'>
                         <h1 className='Quiz-title'>Quiz</h1>
+                        <div className='Quiz-center bottom-space-2'>
+                            <button className='Quiz-new-quiz' onClick={newQuiz}>Start Quiz Over</button>
+                        </div>
                         <div className='quiz-mode-container'>
                             <label className="mode-switch">
                             <h3 className='Quiz-mode'><b>Mode: </b> <span style={{color:'var(--text-color'}}>{mode.toUpperCase()}</span></h3>

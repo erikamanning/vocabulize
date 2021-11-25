@@ -15,6 +15,18 @@
 
 }
 
+
+.bottom-space-2{
+  margin-bottom: 2%;
+}
+.Quiz-new-quiz{
+  font-size: 1.2em;
+  color: #1894ef;
+  background-color: var(--neutral-color);
+  border-radius: 5%;
+  margin-bottom: 2%;
+}
+
 .quiz-mode-container{
   transform: translateY(27px);
 }

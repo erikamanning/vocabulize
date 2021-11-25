@@ -18,3 +18,11 @@
     color: #cb3126;
 
 }
+
+.Deck-new-deck{
+    font-size: 1.2em;
+    color: #1894ef;
+    background-color: var(--neutral-color);
+    border-radius: 5%;
+    margin-bottom: 2%;
+}
