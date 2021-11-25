@@ -15,8 +15,6 @@ const QuizContext = React.createContext();
 
 const Quiz = () => {
 
-    console.log('loading quiz component')
-
     const {deck} = useContext(DeckContext);
     const [quiz,setQuiz] = useState(false);
     const [quizScore, setQuizScore] = useState(0);
@@ -30,10 +28,7 @@ const Quiz = () => {
     useEffect(()=>{
 
         if(!quiz && deck){
-            console.log('deck: ', deck);
             const shuffledCardIds = shuffleDeck(deck);
-            console.log('shuffledCardIds: ', shuffledCardIds);
-
             const quizData = {};
             let i=1;
 
@@ -103,10 +98,6 @@ const Quiz = () => {
 
 
     const pickAnswer = (cardId,answerId) => {
-        console.log(`Picked answer! ${answerId} `);
-        console.log(`Card Id: `, cardId);
-        console.log(`quiz[cardId].correctAnswer: `, quiz[cardId].correctAnswer);
-
 
         if(answerId == quiz[cardId].correctAnswer){
             console.log('CORRECT!!!');

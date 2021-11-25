@@ -11,7 +11,6 @@ import Loading from "../Loading";
 
 const Deck = () => {
     const firstCardNum = 1;
-    console.log('Rendering Deck Component');
     const {deck} = useContext(DeckContext);
     const [currentCard,setCurrentCard] = useState(firstCardNum);
 

@@ -13,11 +13,6 @@ const QuizCard = ({cardData}) => {
 
     const {mode} = useContext(QuizContext);
 
-    console.log('Quiz Card');
-    console.log('Card Data: ', cardData);
-
-
-
     return (
         <div>
             {cardData 

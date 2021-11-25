@@ -13,13 +13,11 @@ const shuffleArr = (items) => {
         shuffledArr.push(items[randIndex]);
         items.splice(randIndex,1);
     }
-    console.log('Shuffled Answer Keys: ', shuffledArr);
     return shuffledArr;
 }
 
 const getRandItems = (arr, numItems) => {
 
-    console.log('arr: ', arr);
     let arrCopy = [...arr];
     let randItems = [];
 
@@ -28,7 +26,6 @@ const getRandItems = (arr, numItems) => {
         randItems.push(arr.splice(randIndex,1));
     }
 
-    console.log('randItems: ', randItems);
     return randItems;
 }
 
