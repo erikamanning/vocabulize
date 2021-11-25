@@ -11,6 +11,7 @@ import {
 import Deck from './Components/Deck/Deck'
 import Quiz from './Components/Quiz/Quiz'
 import Home from './Components/Home'
+import ProcessComponent from './Components/Process/ProcessComponent'
 
 
 ReactDOM.render(
@@ -21,6 +22,7 @@ ReactDOM.render(
           <Route index element={<Home />}/>
           <Route path="deck" element={<Deck />}/>
           <Route path="quiz" element={<Quiz />}/>
+          <Route path="process" element={<ProcessComponent />}/>
         </Route>
         <Route
             path="*"

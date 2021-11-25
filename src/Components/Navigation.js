@@ -9,6 +9,7 @@ const Navigation = () => {
                 <div className="Navigation-links">
                   <Link to="/deck">Deck</Link> {' '}
                   <Link to="/quiz">Quiz</Link>
+                  <Link to='/process'>Process</Link>
                 </div>
               <Outlet />
             </div>

@@ -1,7 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import '../Tranisitions/Object-in.css';
-import '../Tranisitions/Object-in';
 import '../Deck/Card/Card.css';
 import './HomeExplanation.css'
 import InView from "react-intersection-observer";
@@ -12,6 +10,8 @@ const HomeExplanation = () => {
                 <motion.div
                 ref={ref}
                 initial={{opacity:0, y:10}}
+                whileInView="visible"
+                viewport={{ once: true }}
                 animate={ inView ? {opacity:1} : {opacity:0}}
                 transition={{duration:.8}}
                 className='home-explanatation-container'>

@@ -119,36 +119,42 @@ const Quiz = () => {
         <div>
             {deck && quiz
                 ?
-                <motion.div
-                initial={{ opacity: 0, y:20}}
-                animate={{ opacity: 1, y:0 }}
-                transition={{duration:1, delay:.5}}
-                className='Quiz'>
-                    <h1 className='Quiz-title'>Quiz</h1>
-                    <h3><b>Mode: </b> <span className='Quiz-mode'>{mode.toUpperCase()}</span></h3>
-                    <label className="mode-switch">
-                        <input onChange={handleSwitch} type="checkbox" />
-                        <span className="slider round"></span>
-                    </label>
-                    <h3 className='Quiz-center Quiz-red'><b>Score: {`${quizScore} / ${DECK_SIZE}`}</b></h3>
-                    <QuizContext.Provider value={{quiz,mode, pickAnswer}}>
-
-                        {
-                            quiz 
-                            ? <QuizCard key={uuidv4()} cardData={quiz[quiz.questionOrder[currentCard]]} />
-                            : <p>Loading Quiz...</p>
-                        }
-                        <h2 className='Quiz-center Quiz-red'>{currentCard+1} of {DECK_SIZE}</h2>
-
-                        <div className='Quiz-center'>                 
-                            <button className='Quiz-button' onClick={previousCard} >{arrowLeftIcon}</button>
-                            <button className='Quiz-button' onClick={nextCard} >{arrowRightIcon}</button>
+                <div className='Quiz'>
+                    <div className='quiz-head-container'>
+                        <h1 className='Quiz-title'>Quiz</h1>
+                        <div className='quiz-mode-container'>
+                            <label className="mode-switch">
+                            <h3 className='Quiz-mode'><b>Mode: </b> <span style={{color:'var(--text-color'}}>{mode.toUpperCase()}</span></h3>
+                                <input onChange={handleSwitch} type="checkbox" />
+                                <span className="slider round"></span>
+                            </label>
                         </div>
+                    </div>
+
+                    <motion.div
+                        initial={{ opacity: 0, y:20}}
+                        animate={{ opacity: 1, y:0 }}
+                        transition={{duration:1, delay:.5}} >
+                        <h3 className='Quiz-center Quiz-red'><b>Score: {`${quizScore} / ${DECK_SIZE}`}</b></h3>
+                        <QuizContext.Provider value={{quiz,mode, pickAnswer}}>
+
+                            {
+                                quiz 
+                                ? <QuizCard key={uuidv4()} cardData={quiz[quiz.questionOrder[currentCard]]} />
+                                : <p>Loading Quiz...</p>
+                            }
+                            <h2 className='Quiz-center Quiz-red'>{currentCard+1} of {DECK_SIZE}</h2>
+
+                            <div className='Quiz-center'>                 
+                                <button className='Quiz-button' onClick={previousCard} >{arrowLeftIcon}</button>
+                                <button className='Quiz-button' onClick={nextCard} >{arrowRightIcon}</button>
+                            </div>
 
 
-                    </QuizContext.Provider>
+                        </QuizContext.Provider>
+                    </motion.div>
 
-                </motion.div>
+                </div>
 
                 : <Loading page='quiz'/>
                 }

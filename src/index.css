@@ -31,9 +31,11 @@ body{
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
   margin: 0 0 0 0;
+  overflow-x: hidden;
 }
 p{
   font-size: 2rem;
+  color: var(--text-color);
 }
 header{
   color:var(--text-color);

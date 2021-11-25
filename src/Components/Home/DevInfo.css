@@ -1,0 +1,60 @@
+.dev-info-container {
+    display: flex;
+    width: 60%;
+    text-align: center;
+    margin:auto;
+}
+
+.dev-card {
+    background-color: var(--neutral-color);
+    width: 60%;
+    border-radius: 5%;
+    margin: 5%;
+    text-align: center;
+    -moz-box-shadow:    3px 3px 5px var(--drop-shadow-color);
+    -webkit-box-shadow: 3px 3px 5px var(--drop-shadow-color);
+    box-shadow:         3px 3px 5px var(--drop-shadow-color);
+}
+
+.dev-img{
+    width: 60%;
+    border-radius: 100%;
+    margin: 10%;
+}
+.dev-blurb {
+    margin: 0 10% 0 10%;
+    font-size: 20px;
+
+}
+
+.dev-link-container{
+    display: inline-block;
+    padding-bottom: 10%;
+    width: 60%;
+    
+}
+
+.dev-link-container >a{
+    display: inline-block;
+    padding: 10%;
+    color: var(--text-color);
+
+}
+.icon{
+    transform: scale(200%);
+    padding: 5%;
+}
+
+@media only screen and (max-width: 981px){
+    .dev-info-container{
+        width: 70%;
+        display: block;
+
+
+    }
+    .dev-card{
+        width:80%;
+        margin: 5% auto 5% auto;
+
+    }
+}

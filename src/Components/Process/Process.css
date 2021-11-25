@@ -1,0 +1,37 @@
+.process-row >img{
+    width: 60%;
+}
+
+h1{
+    color:var(--text-color)
+}
+.process-container{
+
+    width: 80%;
+    margin: 5vh auto 0 auto;
+    text-align: center;
+    font-size: 20px;
+}
+
+.process-row{
+    display: flex;
+
+    grid-template-columns: 2fr 1fr;
+    margin-bottom: 5%;
+}
+.process-row > p{
+    width: 30%;
+
+    padding: 5%;
+}
+@media only screen and (max-width: 981px){
+    .process-row{
+       display: block;
+    }
+    .process-row >p{
+        width: 100%;
+    }
+    .process-row >img{
+        width: 100%;
+    }
+}

@@ -1,15 +1,26 @@
 .Quiz{
-    margin: 10vh auto;
+    margin:  auto;
     width: 75%;
 }
 
+.quiz-head-container{
+  display:flex;
+  width: 40%;
+  margin: auto;
+  align-items:stretch;
+  justify-content: space-between;
+}
 
 .Quiz-title{
     text-align: left;
+
 }
 
+.quiz-mode-container{
+  transform: translateY(27px);
+}
 .Quiz-mode{
-    color: #1894ef;
+  transform: translateY(20px);
 }
 .Quiz-center{
   text-align: center;
