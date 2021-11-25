@@ -1,11 +1,7 @@
-img{
+.process-row >img{
     width: 60%;
 }
-p{
-    width: 30%;
-    text-align: left;
-    padding: 5%;
-}
+
 h1{
     color:var(--text-color)
 }
@@ -23,15 +19,19 @@ h1{
     grid-template-columns: 2fr 1fr;
     margin-bottom: 5%;
 }
+.process-row > p{
+    width: 30%;
 
+    padding: 5%;
+}
 @media only screen and (max-width: 981px){
     .process-row{
        display: block;
     }
-    p{
+    .process-row >p{
         width: 100%;
     }
-    img{
+    .process-row >img{
         width: 100%;
     }
 }
