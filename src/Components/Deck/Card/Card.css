@@ -27,7 +27,7 @@
 }
 .card-word{
     font-size: 24pt;
-    color: var(--text-accent);
+    color: var(--text-color);
     margin-top: 0;
     margin-bottom: 1em;
 
@@ -36,6 +36,7 @@
 
 .definition{
     font-size: 20pt;
+    color:black;
 }
 button{
     color: var(--text-accent);
