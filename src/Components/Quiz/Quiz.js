@@ -108,6 +108,7 @@ const Quiz = () => {
     const newQuiz = () => {
         setQuiz(false);
         setCurrentCard(firstCardNum);
+        setQuizScore(0)
       }
 
     return (
